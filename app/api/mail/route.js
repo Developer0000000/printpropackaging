@@ -20,7 +20,7 @@ export async function POST(request) {
         subject: `New Inquiry from ${name} to the PrintProPackaging.`,
         text: ` 
             ${title ? 'Product Title: ' + title : ''}
-            ${slug ? 'Product Link: http://localhost:3000/product/' + slug : ''}
+            ${slug ? `Product Link: ${process.env.NEXT_BASE_URL}/product/${slug}` : ''}
             Width: ${width}
             Height: ${height}
             Depth: ${depth}
