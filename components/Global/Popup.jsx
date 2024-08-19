@@ -1,0 +1,26 @@
+import React from 'react';
+import MainForm from './form/MainForm';
+
+const Popup = ({ isOpen, onClose }) => {
+
+    if (!isOpen) return null;
+
+    return (
+        <>
+            <div className="fixed inset-0 flex items-center justify-center z-50 transition-all duration-500">
+                <div style={{ backgroundImage: 'url(/images/pattern_bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} className="p-8 rounded-lg shadow-lg w-full max-w-2xl relative z-50 overflow-auto h-[70vh] md:h-auto">
+                    <div className="flex justify-between items-center mb-4 p-2 bg-[#2e4057] rounded-md text-white w-full">
+                        <h2 className="font-semibold text-white text-center">PRICE ON REQUEST</h2>
+                        <button onClick={onClose} className="text-white">
+                            <i className="ri-close-large-fill text-2xl"></i>
+                        </button>
+                    </div>
+                    <MainForm />
+                </div>
+                <div className="fixed inset-0 bg-black opacity-50" onClick={onClose}></div>
+            </div>
+        </>
+    );
+};
+
+export default Popup;
