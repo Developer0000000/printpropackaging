@@ -58,9 +58,9 @@ export default function Component() {
                     </button>
                 </div>
                 <div className="flex flex-col space-y-4 p-4">
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="RETAIL BOXES" menuLists={'Printed Archive Boxes'} menuLink={'http://localhost:3000/product/custom-printed-archive-boxes'} />
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="CUSTOM CBD BOXES" menuLists={'Bath Bombs Boxes'} menuLink={'http://localhost:3000/product/cbd-bath-bombs-boxes'} />
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="BOX BY INDUSTRIES" menuLists={'Printed Mailer Boxes'} menuLink={'http://localhost:3000/product/custom-printed-mailer-boxes'} />
+                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="RETAIL BOXES" menuLists={'Printed Archive Boxes'} menuLink={'https://printpropackaging.vercel.app/product/custom-printed-archive-boxes'} />
+                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="CUSTOM CBD BOXES" menuLists={'Bath Bombs Boxes'} menuLink={'https://printpropackaging.vercel.app/product/cbd-bath-bombs-boxes'} />
+                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="BOX BY INDUSTRIES" menuLists={'Printed Mailer Boxes'} menuLink={'https://printpropackaging.vercel.app/product/custom-printed-mailer-boxes'} />
 
                     <Link onClick={() => setSidebarOpen(false)} href="/about" className="text-sm text-gray-800 font-semibold pl-2 pt-3" prefetch={false}>
                         ABOUT US
