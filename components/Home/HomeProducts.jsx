@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import ProductsCard from '../Products/productsCard';
+import ProductsCard from '@/components/Products/ProductsCard';
 import { client } from '@/sanity/lib/client';
 
 export const revalidate = 60;
