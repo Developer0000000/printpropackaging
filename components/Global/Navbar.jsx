@@ -58,9 +58,9 @@ export default function Component() {
                     </button>
                 </div>
                 <div className="flex flex-col space-y-4 p-4">
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="RETAIL BOXES" menuLists={'Printed Archive Boxes'} menuLink={`${process.env.NEXT_BASE_URL}/product/custom-printed-archive-boxes`} />
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="CUSTOM CBD BOXES" menuLists={'Bath Bombs Boxes'} menuLink={`${process.env.NEXT_BASE_URL}/product/cbd-bath-bombs-boxes`} />
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="BOX BY INDUSTRIES" menuLists={'Printed Mailer Boxes'} menuLink={`${process.env.NEXT_BASE_URL}/product/custom-printed-mailer-boxes`} />
+                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="RETAIL BOXES" menuLists={'Printed Archive Boxes'} menuLink={`/product/custom-printed-archive-boxes`} />
+                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="CUSTOM CBD BOXES" menuLists={'Bath Bombs Boxes'} menuLink={`/product/cbd-bath-bombs-boxes`} />
+                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="BOX BY INDUSTRIES" menuLists={'Printed Mailer Boxes'} menuLink={`/product/custom-printed-mailer-boxes`} />
 
                     <Link onClick={() => setSidebarOpen(false)} href="/about" className="text-sm text-gray-800 font-semibold pl-2 pt-3" prefetch={false}>
                         ABOUT US
@@ -79,9 +79,9 @@ export default function Component() {
 
             {/* Top Navigation Links */}
             <div className="hidden md:flex justify-center items-center space-x-8 py-4 bg-white border-b px-4 md:px-20">
-                <NavMenu menuName="RETAIL BOXES" menuLists={'Printed Archive Boxes'} menuLink={`${process.env.NEXT_BASE_URL}/product/custom-printed-archive-boxes`} />
-                <NavMenu menuName="CUSTOM CBD BOXES" menuLists={'Bath Bombs Boxes'} menuLink={`${process.env.NEXT_BASE_URL}/product/cbd-bath-bombs-boxes`} />
-                <NavMenu menuName="BOX BY INDUSTRIES" menuLists={'Printed Mailer Boxes'} menuLink={`${process.env.NEXT_BASE_URL}/product/custom-printed-mailer-boxes`} />
+                <NavMenu menuName="RETAIL BOXES" menuLists={'Printed Archive Boxes'} menuLink={`/product/custom-printed-archive-boxes`} />
+                <NavMenu menuName="CUSTOM CBD BOXES" menuLists={'Bath Bombs Boxes'} menuLink={`/product/cbd-bath-bombs-boxes`} />
+                <NavMenu menuName="BOX BY INDUSTRIES" menuLists={'Printed Mailer Boxes'} menuLink={`/product/custom-printed-mailer-boxes`} />
 
                 {/* <NavMenu2 /> */}
 
