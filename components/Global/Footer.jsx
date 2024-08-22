@@ -5,8 +5,8 @@ import React from 'react'
 const Footer = () => {
     return (
         <>
-            <footer className="text-white bg-black body-font px-4 md:px-20">
-                <div className="container px-5 py-14 mx-auto">
+            <footer className="text-white bg-black body-font px-4 md:px-[var(--paddingX)]">
+                <div className="container py-14 mx-auto">
                     <div className="flex justify-between items-start flex-wrap md:text-left text-center -mb-10 -mx-4">
                         <div className='w-full md:w-auto'>
                             <h2 className="title-font font-medium text-lg mb-6 text__golden underline underline-offset-4">Contact</h2>

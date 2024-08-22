@@ -35,7 +35,7 @@ const BlogCard = ({ blogImg, title, author, date, description, id }) => {
     return (
         <>
             <PageTitle currentPageTitle={newTitle} currentPage={`${blogNavigation} / BlogPost`} prevPage='Home' />
-            <section className='md:px-20 px-4 mt-16'>
+            <section className='md:px-[var(--paddingX)] px-4 mt-16'>
                 <article className="prose lg:prose-xl">
                     <Image width={1000} height={500} src={blogImg} alt="Blog Post" className="w-full rounded-lg shadow-lg duration-300 transition-all hover:scale-[1.011]" />
                     <br />

@@ -1,40 +1,73 @@
 import nodeMailer from 'nodemailer';
+import cloudinary from 'cloudinary';
+
+// Configure Cloudinary
+cloudinary.v2.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(request) {
-    const { width, height, depth, quantity, unit, color, name, email, phone, message, slug, title } = await request.json();
-
-    const transporter = nodeMailer.createTransport({
-        service: 'gmail',
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-            user: process.env.SMTP_EMAIL,
-            pass: process.env.SMTP_PASSWORD
-        }
-    });
-
-    const mailOptions = {
-        from: email,
-        to: 'tayyabafzal174@gmail.com',
-        subject: `New Inquiry from ${name} to the PrintProPackaging.`,
-        text: ` 
-            ${title ? 'Product Title: ' + title : ''}
-            ${slug ? `Product Link: ${process.env.NEXT_BASE_URL}/product/${slug}` : ''}
-            Width: ${width}
-            Height: ${height}
-            Depth: ${depth}
-            Quantity: ${quantity}
-            Unit: ${unit}
-            Color: ${color}
-            Name: ${name}
-            Email: ${email}
-            Phone: ${phone}
-            Message: ${message}
-        `,
-    };
-
     try {
+        const { width, height, depth, quantity, unit, color, name, email, phone, message, slug, title, stock, images } = await request.json();
+
+        let newImages = [];
+        if (typeof images === "string") {
+            newImages.push(images);
+        } else {
+            newImages = images;
+        }
+        console.log(newImages)
+
+        const imagesLinks = [];
+
+        for (let i = 0; i < newImages.length; i++) {
+
+            const result = await cloudinary.v2.uploader.upload(newImages[i], {
+                folder: 'PrintProPackaging',
+            });
+
+            imagesLinks.push({
+                public_id: result.public_id,
+                url: result.secure_url
+            });
+        };
+
+
+        const transporter = nodeMailer.createTransport({
+            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
+            auth: {
+                user: process.env.SMTP_EMAIL,
+                pass: process.env.SMTP_PASSWORD,
+            },
+        });
+
+        const mailOptions = {
+            from: email,
+            to: 'tayyabafzal174@gmail.com',
+            subject: `New Inquiry from ${name} to the PrintProPackaging.`,
+            text: `
+                ${title ? 'Product Title: ' + title : ''}
+                ${slug ? `Product Link: ${process.env.NEXT_BASE_URL}/product/${slug}` : ''}
+                Width: ${width}
+                Height: ${height}
+                Depth: ${depth}
+                Quantity: ${quantity}
+                Unit: ${unit}
+                Color: ${color}
+                Name: ${name}
+                Email: ${email}
+                Phone: ${phone}
+                Message: ${message}
+                Stock: ${stock}
+                Images: ${imagesLinks.map((image) => image.url).join(', ')}
+            `,
+        };
+
         await transporter.sendMail(mailOptions);
         return new Response(JSON.stringify({ success: true }), { status: 200 });
     } catch (error) {

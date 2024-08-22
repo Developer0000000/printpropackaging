@@ -3,7 +3,7 @@ import React from 'react'
 const HomeDetails = () => {
     return (
         <>
-            <section className='md:px-20 px-4 pb-20'>
+            <section className='md:px-[var(--paddingX)] px-4 pb-20'>
                 <div className='px-6 pb-6 bg-slate-50 rounded-lg border'>
                     <h1 className='text-xl font-bold mt-8 mb-2'>Custom Boxes - USA Wholesale Printing and Packaging | PrintPro Packaging  </h1>
                     PrintPro Packaging is the best USA Wholesale Printing and Packaging company for Custom Boxes like. Custom boxes are a popular packaging solution for businesses across various industries. In this article, we will define and explain Custom Cube Boxes, discuss their importance in packaging, and explore the different types of custom boxes available. We will also cover the benefits of using Custom Printed Candle Boxes and the various industries that use them.

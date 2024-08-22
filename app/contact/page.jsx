@@ -52,7 +52,7 @@ const Contact = () => {
     <>
       <PageTitle currentPageTitle='Contact PrintPro Packaging' currentPage='Contact' prevPage='Home' />
 
-      <section className='md:p-20 px-4 py-20 h-full w-full relative'>
+      <section className='md:px-[var(--paddingX)] px-4 py-20 h-full w-full relative'>
         <div className='grid grid-cols-12 md:gap-10 gap-y-8'>
           {ContactInfo.map((item, index) => (
             <div key={index} className='text-center flex justify-center rounded-lg py-10 px-6 space-y-2 items-center flex-col col-span-12 md:col-span-4 bg-slate-100'>

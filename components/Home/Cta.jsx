@@ -5,7 +5,7 @@ import React from 'react'
 const Cta = () => {
     return (
         <>
-            <div className='flex items-center justify-between flex-wrap md:p-20 px-4 py-20 gap-y-5'>
+            <div className='flex items-center md:px-[var(--paddingX)] px-4 py-20 gap-y-5'>
                 {
                     CtaCards.map((item, index) => (
                         <div key={index} className="md:max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">

@@ -21,7 +21,7 @@ export default function Component() {
     return (
         <div className="w-full">
 
-            <div className="flex items-center justify-between p-4 border-b px-4 md:px-20">
+            <div className="flex items-center justify-between p-4 border-b px-4 md:px-[var(--paddingX)]">
                 <Link href='/' className="flex items-center space-x-4">
                     <Image width={50} height={50} src="/placeholder.svg" alt="Logo" className="h-12" />
                     <div>
@@ -30,13 +30,13 @@ export default function Component() {
                     </div>
                 </Link>
                 <i onClick={toggleSidebar} className="ri-menu-5-line text-4xl cursor-pointer md:hidden block"></i>
-                <div className="items-center space-x-2 hidden md:flex">
+                {/* <div className="items-center space-x-2 hidden md:flex">
                     <PhoneIcon className="text-black" />
                     <div>
                         <p className="text-sm">9:30am - 6:30pm EST</p>
                         <p className="text-orange-500 font-bold">+1 501-553-4722</p>
                     </div>
-                </div>
+                </div> */}
                 <div className="items-center space-x-4 hidden md:flex mail__btn">
                     <Button text="Get Free Quote" icon={<i className="ri-file-text-line mr-1"></i>} />
                     {/* <i onClick={openSearch} className="ri-search-line text-3xl cursor-pointer"></i> */}
@@ -73,7 +73,7 @@ export default function Component() {
                     </Link>
                 </div>
                 <div className="items-center ml-4 flex pl-2 pt-3 ">
-                    <Button />
+                <Button text="Get Free Quote" icon={<i className="ri-file-text-line mr-1"></i>} />
                 </div>
             </div>
 

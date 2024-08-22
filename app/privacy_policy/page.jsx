@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
         <>
             <PageTitle currentPageTitle='Privacy Policy' currentPage='Privacy Policy' prevPage='Home' />
 
-            <section className='md:p-20 px-4 py-20'>
+            <section className='md:px-[var(--paddingX)] px-4 py-20'>
 
                 <h1 className='text-3xl font-bold text-center'>Privacy Policy</h1>
 

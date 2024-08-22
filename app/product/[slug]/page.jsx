@@ -25,7 +25,7 @@ export default async function Product({ params }) {
     return (
         <>
             <PageTitle currentPage={"Product"} currentPageTitle={productData.title} prevPage="Home" />
-            <section className='md:p-20 px-4 pt-10 pb-20'>
+            <section className='md:px-[var(--paddingX)] md:py-20 px-4 pt-10 pb-20'>
 
                 <div className="flex justify-around flex-wrap md:gap-0 gap-5">
                     <ProductQuality icon={<i className="ri-wallet-3-fill"></i>} title="Competitive Pricing" />
@@ -34,15 +34,16 @@ export default async function Product({ params }) {
                     <ProductQuality icon={<i className="ri-shield-flash-fill"></i>} title="Proper Quality Assured" />
                 </div>
                 <div className="text-gray-600 body-font">
-                    <div className="container mx-auto flex pt-24 md:flex-row flex-col items-start gap-6 text-sm">
+                    <div className="container mx-auto flex pt-20 md:flex-row flex-col items-start gap-6 text-sm">
                         <div className='w-full md:w-[40%]'>
                             <ProductSwiper images={productData.images} />
                         </div>
                         <div className='w-full md:w-[60%]'>
-                            <div>
-                                <p className='leading-[1.8]'>{productData.description}</p>
-                            </div>
-                            <br />
+                            {
+                                productData.description && <div>
+                                    <p className='leading-[1.8] mb-8'>{productData.description}</p>
+                                </div>
+                            }
                             <div style={{ backgroundImage: 'url(/images/pattern_bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} className="p-8 rounded-lg shadow-lg w-full max-w-2xl relative z-50 overflow-auto h-full md:h-auto">
                                 <div className="mb-4 p-2 bg-[#2e4057] ">
                                     <h2 className="font-semibold text-white text-center">PRICE ON REQUEST</h2>
@@ -54,7 +55,7 @@ export default async function Product({ params }) {
                 </div>
 
                 <div className='h-full w-full relative'>
-                    <ProductContent content={productData.content}/>
+                    <ProductContent content={productData.content} />
                 </div>
 
                 <div className='h-full w-full relative'>

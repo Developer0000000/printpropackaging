@@ -9,7 +9,7 @@ const Blogs = () => {
     <>
       <PageTitle currentPageTitle='Blogs' currentPage='Blogs' prevPage='Home' />
 
-      <section className='md:p-20 px-4 py-20'>
+      <section className='md:px-[var(--paddingX)] px-4 py-20'>
         <div className=''>
           {
             <div className='grid lg:grid-cols-3 md:grid-cols-2 text-left grid-cols-1 gap-12 justify-center'>

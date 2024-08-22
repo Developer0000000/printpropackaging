@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Testimonials() {
     return (
         <>
-            <div className="md:px-20 py-10 px-4">
+            <div className="md:px-[var(--paddingX)] py-10 px-4">
                 <div className='text-center'>
                     <h2 className='mb-1 text-2xl font-bold'>Stories of Success</h2>
                     <p className="mb-5 text-lg font-normal">Browse Our Happy Client Highlights</p>
