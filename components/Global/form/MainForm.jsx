@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const MainForm = ({ slug, title }) => {
@@ -28,21 +29,28 @@ const MainForm = ({ slug, title }) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const router = useRouter()
+
     const handleChange = (e) => {
-        if (e.target.name === 'avatar') {
-            const reader = new FileReader();
-            reader.onload = () => {
-                if (reader.readyState === 2) {
-                    setAvatarPreview(reader.result);
-                    setAvatar(reader.result);
-                }
-            }
-            reader.readAsDataURL(e.target.files[0]);
-        }
-        else setFormData({ ...formData, [e.target.name]: e.target.value, });
+        setFormData({ ...formData, [e.target.name]: e.target.value, });
     };
 
-    // make it short 
+    const handleImgChange = (e) => {
+        const files = Array.from(e.target.files);
+
+        files.forEach((file) => {
+            const reader = new FileReader();
+
+            reader.onload = () => {
+                if (reader.readyState === 2) {
+                    setImagesPreview((old) => [...old, reader.result]);
+                    setImages((old) => [...old, reader.result]);
+                }
+            };
+
+            reader.readAsDataURL(file);
+        });
+    };
 
     const getBestDeal = async (e) => {
         e.preventDefault();
@@ -61,7 +69,8 @@ const MainForm = ({ slug, title }) => {
             });
 
             if (response.ok) {
-                alert('Email sent successfully!');
+                document.querySelector('.pop__up').style.display = 'none';
+                router.push("/thank_you");
                 setFormData({
                     width: '', height: '', depth: '', quantity: '', unit: '', color: '', name: '', email: '', phone: '', message: '', cardThickness: '', extraFinishes: '', lamination: '', stock: '', printing: '', slug: slug || '', title: title || ''
                 });
@@ -70,27 +79,11 @@ const MainForm = ({ slug, title }) => {
                 setIsLoading(false);
             } else {
                 alert('Failed to send email.');
+                setIsLoading(false);
             }
         } catch (error) {
             console.error('Error:', error);
         }
-    };
-
-    const handleImgChange = (e) => {
-        const files = Array.from(e.target.files);
-
-        files.forEach((file) => {
-            const reader = new FileReader();
-
-            reader.onload = () => {
-                if (reader.readyState === 2) {
-                    setImagesPreview((old) => [...old, reader.result]);
-                    setImages((old) => [...old, reader.result]);
-                }
-            };
-
-            reader.readAsDataURL(file);
-        });
     };
 
     return (

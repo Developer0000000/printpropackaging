@@ -11,7 +11,7 @@ cloudinary.v2.config({
 export async function POST(request) {
     try {
         const { width, height, depth, quantity, unit, color, name, email, phone, message, slug, title, stock, images, printing, cardThickness, extraFinishes, lamination } = await request.json();
-
+        console.log(printing)
         const imagesLinks = [];
 
         if (images) {

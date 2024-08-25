@@ -1,7 +1,8 @@
-'use client'
+'use client';
 import Accordions from '@/components/Global/Accordions';
 import PageTitle from '@/components/Global/pageTitle';
 import { ContactInfo } from '@/config/ContactData';
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react';
 
 const Contact = () => {
@@ -12,6 +13,7 @@ const Contact = () => {
     message: ''
   });
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,20 +35,26 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        alert('Email sent successfully!');
+        router.push('/thank_you');
+        setIsLoading(false);
+        setFormData({
+          name: '',
+          email: '',
+          query: '',
+          message: ''
+        });
       } else {
         alert('Failed to send email.');
+        setIsLoading(false);
       }
     } catch (error) {
       console.error('Error:', error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     document.title = 'Custom Boxes Wholesale - Contact Us';
-  }, [])
+  }, []);
 
   return (
     <>
@@ -151,6 +159,6 @@ const Contact = () => {
       </section>
     </>
   );
-}
+};
 
 export default Contact;

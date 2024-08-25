@@ -4,7 +4,7 @@ import Popup from './Popup';
 const Button = ({ text, icon }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openPopup = () => setIsOpen(true);
+  const openPopup = () => setIsOpen(true)
   const closePopup = () => setIsOpen(false);
 
   return (
