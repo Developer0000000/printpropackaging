@@ -14,7 +14,7 @@ export const CtaCards = [
 
     {
         title: 'Starting from 100 Boxes',
-        description: 'Not Required Huge Batch of Boxes to Get Your Packaging Products.',
+        description: 'Not Required Huge Batch of Boxes to Get Packaging Products.',
         icon: <i className="ri-archive-fill"></i>,
     },
 

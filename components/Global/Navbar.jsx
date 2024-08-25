@@ -21,6 +21,50 @@ export default function Component() {
     return (
         <div className="w-full">
 
+            {/* Top Navigation Links */}
+            <div className="hidden md:flex justify-between items-center space-x-8 py-4 bg-white border-b px-4 md:px-[var(--paddingX)]">
+
+                <div className="flex items-center">
+                    <div className="items-center space-x-1 flex border-r-4 pr-2 border-black">
+                        <PhoneIcon className="text-black" />
+                        <p className="text-orange-500 font-bold">+1 501-553-4722</p>
+                    </div>
+                    <div className="items-center space-x-1 flex pl-2">
+                        <i className="ri-send-plane-fill text-xl"></i>
+                        <a href="mailto:sales@printpropackaging">sales@printpropackaging.com</a>
+                    </div>
+                </div>
+
+                <div className='flex items-center space-x-6'>
+                    <Link href="/" className="text-sm text-gray-800 font-semibold" prefetch={false}>
+                        HOME
+                    </Link>
+
+                    <NavMenu />
+
+                    <Link href="/about" className="text-sm text-gray-800 font-semibold" prefetch={false}>
+                        ABOUT US
+                    </Link>
+                    <Link href="/blogs" className="text-sm text-gray-800 font-semibold" prefetch={false}>
+                        BLOGS
+                    </Link>
+                    <Link href="/contact" className="text-sm text-gray-800 font-semibold" prefetch={false}>
+                        CONTACT
+                    </Link>
+                </div>
+
+            </div>
+
+            <div className="flex sm:hidden items-center justify-center flex-wrap border-b border-black pt-4 pb-3">
+                <div className="items-center space-x-1 flex">
+                    <PhoneIcon className="text-black" />
+                    <p className="text-orange-500 font-bold">+1 501-553-4722</p>
+                </div>
+                <div className="items-center space-x-1 flex pl-2">
+                    <i className="ri-send-plane-fill text-xl"></i>
+                    <a href="mailto:sales@printpropackaging">sales@printpropackaging.com</a>
+                </div>
+            </div>
             <div className="flex items-center justify-between p-4 border-b px-4 md:px-[var(--paddingX)]">
                 <Link href='/' className="flex items-center space-x-4">
                     <Image width={50} height={50} src="/placeholder.svg" alt="Logo" className="h-12" />
@@ -30,13 +74,6 @@ export default function Component() {
                     </div>
                 </Link>
                 <i onClick={toggleSidebar} className="ri-menu-5-line text-4xl cursor-pointer md:hidden block"></i>
-                {/* <div className="items-center space-x-2 hidden md:flex">
-                    <PhoneIcon className="text-black" />
-                    <div>
-                        <p className="text-sm">9:30am - 6:30pm EST</p>
-                        <p className="text-orange-500 font-bold">+1 501-553-4722</p>
-                    </div>
-                </div> */}
                 <div className="items-center space-x-4 hidden md:flex mail__btn">
                     <Button text="Get Free Quote" icon={<i className="ri-file-text-line mr-1"></i>} />
                     {/* <i onClick={openSearch} className="ri-search-line text-3xl cursor-pointer"></i> */}
@@ -53,16 +90,19 @@ export default function Component() {
                             <p className="text-sm">PACKAGING</p>
                         </div>
                     </Link>
-                    <button onClick={toggleSidebar} className="text-gray-900 text-2xl">
+                    <button onClick={toggleSidebar} className="text-gray-900 text-4xl">
                         <i className="ri-close-line"></i>
                     </button>
                 </div>
                 <div className="flex flex-col space-y-4 p-4">
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="RETAIL BOXES" menuLists={'Printed Archive Boxes'} menuLink={`/product/custom-printed-archive-boxes`} />
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="CUSTOM CBD BOXES" menuLists={'Bath Bombs Boxes'} menuLink={`/product/cbd-bath-bombs-boxes`} />
-                    <NavMenu setSidebarOpen={setSidebarOpen} menuName="BOX BY INDUSTRIES" menuLists={'Printed Mailer Boxes'} menuLink={`/product/custom-printed-mailer-boxes`} />
 
-                    <Link onClick={() => setSidebarOpen(false)} href="/about" className="text-sm text-gray-800 font-semibold pl-2 pt-3" prefetch={false}>
+                    <Link onClick={() => setSidebarOpen(false)} href="/" className="text-sm text-gray-800 font-semibold pl-2 pt-3" prefetch={false}>
+                        HOME
+                    </Link>
+
+                    <NavMenu />
+
+                    <Link onClick={() => setSidebarOpen(false)} href="/about" className="text-sm text-gray-800 font-semibold pl-2" prefetch={false}>
                         ABOUT US
                     </Link>
                     <Link onClick={() => setSidebarOpen(false)} href="/blogs" className="text-sm text-gray-800 font-semibold pl-2 pt-3" prefetch={false}>
@@ -73,27 +113,8 @@ export default function Component() {
                     </Link>
                 </div>
                 <div className="items-center ml-4 flex pl-2 pt-3 ">
-                <Button text="Get Free Quote" icon={<i className="ri-file-text-line mr-1"></i>} />
+                    <Button text="Get Free Quote" icon={<i className="ri-file-text-line mr-1"></i>} />
                 </div>
-            </div>
-
-            {/* Top Navigation Links */}
-            <div className="hidden md:flex justify-center items-center space-x-8 py-4 bg-white border-b px-4 md:px-20">
-                <NavMenu menuName="RETAIL BOXES" menuLists={'Printed Archive Boxes'} menuLink={`/product/custom-printed-archive-boxes`} />
-                <NavMenu menuName="CUSTOM CBD BOXES" menuLists={'Bath Bombs Boxes'} menuLink={`/product/cbd-bath-bombs-boxes`} />
-                <NavMenu menuName="BOX BY INDUSTRIES" menuLists={'Printed Mailer Boxes'} menuLink={`/product/custom-printed-mailer-boxes`} />
-
-                {/* <NavMenu2 /> */}
-
-                <Link href="/about" className="text-sm text-gray-800 font-semibold" prefetch={false}>
-                    ABOUT US
-                </Link>
-                <Link href="/blogs" className="text-sm text-gray-800 font-semibold" prefetch={false}>
-                    BLOGS
-                </Link>
-                <Link href="/contact" className="text-sm text-gray-800 font-semibold" prefetch={false}>
-                    CONTACT
-                </Link>
             </div>
 
             {/* <SearchModal isOpen={isSearchOpen} onClose={closeSearch} /> */}
@@ -106,8 +127,8 @@ function PhoneIcon(props) {
         <svg
             {...props}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

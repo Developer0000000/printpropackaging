@@ -28,7 +28,7 @@ const HomeProducts = () => {
     return (
         <>
             <Tabs className='px-4 md:px-[var(--paddingX)] pb-20 pt-10 homeProducts'>
-                <TabList className='flex items-center justify-center gap-4 flex-wrap '>
+                <TabList className='flex items-center justify-center gap-2 flex-wrap '>
                     <Tab><button className='rounded-md border border-black px-4 py-2 uppercase'>CBD Boxes</button></Tab>
                     <Tab><button className='rounded-md border border-black px-4 py-2 uppercase'>Retail Boxes</button></Tab>
                     <Tab><button className='rounded-md border border-black px-4 py-2 uppercase'>Custom Eco Friendly Boxes</button></Tab>

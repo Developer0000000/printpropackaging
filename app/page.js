@@ -4,8 +4,11 @@ import HomeDetails from '@/components/Home/HomeDetails'
 import HomeProducts from '@/components/Home/HomeProducts'
 import Testimonials from '@/components/Home/Testimonials'
 import React from 'react'
+// import LocomotiveScroll from 'locomotive-scroll';
+
 
 const Home = () => {
+  // const locomotiveScroll = new LocomotiveScroll();
   return (
     <>
       <Banner />

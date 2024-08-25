@@ -21,7 +21,7 @@ const Footer = () => {
                                 </li>
                                 <li className='hover_text__golden'>
                                     <i className="ri-send-plane-fill pr-1.5 text-2xl text__golden"></i>
-                                    <a href="mailto:sales@printpropackaging">sales@printpropackaging</a>
+                                    <a href="mailto:sales@printpropackaging">sales@printpropackaging.com</a>
                                 </li>
                             </nav>
                         </div>

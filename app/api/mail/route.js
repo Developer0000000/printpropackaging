@@ -10,29 +10,31 @@ cloudinary.v2.config({
 
 export async function POST(request) {
     try {
-        const { width, height, depth, quantity, unit, color, name, email, phone, message, slug, title, stock, images } = await request.json();
-
-        let newImages = [];
-        if (typeof images === "string") {
-            newImages.push(images);
-        } else {
-            newImages = images;
-        }
-        console.log(newImages)
+        const { width, height, depth, quantity, unit, color, name, email, phone, message, slug, title, stock, images, printing, cardThickness, extraFinishes, lamination } = await request.json();
 
         const imagesLinks = [];
 
-        for (let i = 0; i < newImages.length; i++) {
+        if (images) {
+            let newImages = [];
+            if (typeof images === "string") {
+                newImages.push(images);
+            } else {
+                newImages = images;
+            }
 
-            const result = await cloudinary.v2.uploader.upload(newImages[i], {
-                folder: 'PrintProPackaging',
-            });
+            for (let i = 0; i < newImages.length; i++) {
 
-            imagesLinks.push({
-                public_id: result.public_id,
-                url: result.secure_url
-            });
-        };
+                const result = await cloudinary.v2.uploader.upload(newImages[i], {
+                    folder: 'PrintProPackaging',
+                });
+
+                imagesLinks.push({
+                    public_id: result.public_id,
+                    url: result.secure_url
+                });
+            };
+        }
+        console.log('r1', imagesLinks.length)
 
 
         const transporter = nodeMailer.createTransport({
@@ -51,20 +53,24 @@ export async function POST(request) {
             to: 'tayyabafzal174@gmail.com',
             subject: `New Inquiry from ${name} to the PrintProPackaging.`,
             text: `
-                ${title ? 'Product Title: ' + title : ''}
-                ${slug ? `Product Link: ${process.env.NEXT_BASE_URL}/product/${slug}` : ''}
+                ${title && 'Product Title: ' + title}
+                ${slug && `Product Link: ${process.env.NEXT_BASE_URL}/product/${slug}`}
+                Name: ${name}
+                Email: ${email}
+                Phone: ${phone}
                 Width: ${width}
                 Height: ${height}
                 Depth: ${depth}
                 Quantity: ${quantity}
                 Unit: ${unit}
-                Color: ${color}
-                Name: ${name}
-                Email: ${email}
-                Phone: ${phone}
-                Message: ${message}
-                Stock: ${stock}
-                Images: ${imagesLinks.map((image) => image.url).join(', ')}
+                ${printing && 'Printing: ' + printing}
+                ${color && 'Color: ' + color}
+                ${message && 'Message: ' + message}
+                ${stock && 'Stock: ' + stock}
+                ${cardThickness && 'Card Thickness: ' + cardThickness}
+                ${extraFinishes && 'Extra Finishes: ' + extraFinishes}
+                ${lamination && 'Lamination: ' + lamination}
+                ${imagesLinks.length >= 1 && `Images: ${imagesLinks.map((image) => image.url).join(', ')}`}
             `,
         };
 

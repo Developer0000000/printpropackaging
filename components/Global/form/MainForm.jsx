@@ -14,7 +14,11 @@ const MainForm = ({ slug, title }) => {
         email: '',
         phone: '',
         message: '',
+        printing: '',
         stock: '',
+        cardThickness: '',
+        extraFinishes: '',
+        lamination: '',
         slug: slug || '',
         title: title || '',
     });
@@ -38,43 +42,31 @@ const MainForm = ({ slug, title }) => {
         else setFormData({ ...formData, [e.target.name]: e.target.value, });
     };
 
+    // make it short 
+
     const getBestDeal = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         const myForm = new FormData();
+        Object.entries(formData).forEach(([key, value]) => myForm.append(key, value));
+        if (images.length > 0) {
+            images.forEach((image) => myForm.append('images', image));
+        }
 
-        myForm.append('name', formData.name);
-        myForm.append('email', formData.email);
-        myForm.append('phone', formData.phone);
-        myForm.append('message', formData.message);
-        myForm.append('width', formData.width);
-        myForm.append('height', formData.height);
-        myForm.append('depth', formData.depth);
-        myForm.append('quantity', formData.quantity);
-        myForm.append('unit', formData.unit);
-        myForm.append('color', formData.color);
-        myForm.append('stock', formData.stock);
-        myForm.append('slug', formData.slug);
-        myForm.append('title', formData.title);
-
-        images.forEach((image) => {
-            myForm.append('images', image);
-        });
-
-        const formObj = {};
-        myForm.forEach((value, key) => {
-            console.log(key);
-            formObj[key] = value;
-        });
-
-        setIsLoading(true);
         try {
             const response = await fetch('/api/mail', {
                 method: 'POST',
-                body: JSON.stringify(formObj),
+                body: JSON.stringify(Object.fromEntries(myForm)),
             });
+
             if (response.ok) {
                 alert('Email sent successfully!');
+                setFormData({
+                    width: '', height: '', depth: '', quantity: '', unit: '', color: '', name: '', email: '', phone: '', message: '', cardThickness: '', extraFinishes: '', lamination: '', stock: '', printing: '', slug: slug || '', title: title || ''
+                });
+                setImages([]);
+                setImagesPreview([]);
                 setIsLoading(false);
             } else {
                 alert('Failed to send email.');
@@ -83,7 +75,6 @@ const MainForm = ({ slug, title }) => {
             console.error('Error:', error);
         }
     };
-
 
     const handleImgChange = (e) => {
         const files = Array.from(e.target.files);
@@ -104,15 +95,15 @@ const MainForm = ({ slug, title }) => {
 
     return (
         <form className="text-black" onSubmit={getBestDeal}>
-            <div className="grid grid-cols-12 gap-4 mb-4">
+            <div className="grid grid-cols-12 gap-2 mb-2">
                 <input
                     required
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Name"
-                    className="border p-2 rounded col-span-12 md:col-span-4 text-black placeholder:text-black"
+                    placeholder="Full Name"
+                    className="border p-1.5 col-span-12 text-black placeholder:text-black"
                 />
                 <input
                     required
@@ -120,8 +111,8 @@ const MainForm = ({ slug, title }) => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Email"
-                    className="border p-2 rounded col-span-12 md:col-span-4 text-black placeholder:text-black"
+                    placeholder="Email Address"
+                    className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
                 />
                 <input
                     required
@@ -129,11 +120,11 @@ const MainForm = ({ slug, title }) => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Phone"
-                    className="border p-2 rounded col-span-12 md:col-span-4 text-black placeholder:text-black"
+                    placeholder="Phone Number"
+                    className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
                 />
             </div>
-            <div className="grid grid-cols-12 gap-4 mb-4 h-full">
+            <div className="grid grid-cols-12 gap-2 mb-2 h-full">
                 <input
                     required
                     type="number"
@@ -141,7 +132,7 @@ const MainForm = ({ slug, title }) => {
                     value={formData.width}
                     onChange={handleChange}
                     placeholder="Width"
-                    className="border p-2 rounded col-span-12 md:col-span-4 text-black placeholder:text-black"
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
                 />
                 <input
                     required
@@ -150,7 +141,7 @@ const MainForm = ({ slug, title }) => {
                     value={formData.height}
                     onChange={handleChange}
                     placeholder="Height"
-                    className="border p-2 rounded col-span-12 md:col-span-4 text-black placeholder:text-black"
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
                 />
                 <input
                     required
@@ -159,18 +150,18 @@ const MainForm = ({ slug, title }) => {
                     value={formData.depth}
                     onChange={handleChange}
                     placeholder="Depth"
-                    className="border p-2 rounded col-span-12 md:col-span-4 text-black placeholder:text-black"
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
                 />
             </div>
-            <div className="grid grid-cols-12 gap-4 mb-4">
+            <div className="grid grid-cols-12 gap-2 mb-2">
                 <select
                     required
                     name="unit"
                     value={formData.unit}
                     onChange={handleChange}
-                    className="border p-2 rounded col-span-12 md:col-span-6 text-black placeholder:text-black"
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
                 >
-                    <option value="" disabled>Inches</option>
+                    <option value="" disabled selected>Inches</option>
                     <option value="cm">CM</option>
                     <option value="mm">MM</option>
                 </select>
@@ -178,9 +169,9 @@ const MainForm = ({ slug, title }) => {
                     name="color"
                     value={formData.color}
                     onChange={handleChange}
-                    className="border p-2 rounded col-span-12 md:col-span-6 text-black placeholder:text-black"
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
                 >
-                    <option value="" disabled>Select Colour</option>
+                    <option value="" disabled selected>Select Colour</option>
                     <option value="1 Colour">1 Colour</option>
                     <option value="2 Colour">2 Colour</option>
                     <option value="3 Colour">3 Colour</option>
@@ -190,8 +181,67 @@ const MainForm = ({ slug, title }) => {
                     <option value="4/3 Colour">4/3 Colour</option>
                     <option value="4/4 Colour">4/4 Colour</option>
                 </select>
+                <select
+                    name="printing"
+                    value={formData.printing}
+                    onChange={handleChange}
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
+                >
+                    <option value="Printing" disabled selected>Printing</option>
+                    <option value="Outside only">Outside only</option>
+                    <option value="Inside only">Inside only</option>
+                    <option value="Both side">Both side</option>
+
+                </select>
+                <select
+                    name="cardThickness"
+                    value={formData.cardThickness}
+                    onChange={handleChange}
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
+                >
+                    <option value="" disabled selected> Card Thickness </option>
+                    <option value="12pt (250 GSM)">12pt (250 GSM)</option>
+                    <option value="14pt (270 GSM)"> 14pt(270 GSM) </option>
+                    <option value="16pt (300 GSM)">16pt (300 GSM)</option>
+                    <option value="18pt (350 GSM)"> 18pt(350 GSM) </option>
+                    <option value="20pt (420 GSM)">20pt (420 GSM)</option>
+                    <option value="22pt (460 GSM)"> 22pt(460 GSM) </option>
+                    <option value="24pt (500 GSM)">24pt (500 GSM)</option>
+                    <option value="Corrugated"> Corrugated </option>
+                    <option value="Kraft Stock">Kraft Stock</option>
+                    <option value="Rigid Stock"> Rigid Stock </option>
+                    <option value="Other">Other</option>
+                </select>
+                <select
+                    name="extraFinishes"
+                    value={formData.extraFinishes}
+                    onChange={handleChange}
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
+                >
+                    <option value="" disabled selected>Extra Finishes</option>
+                    <option value="Debossing">Debossing</option>
+                    <option value="Embossing">Embossing</option>
+                    <option value="Foiling">Foiling</option>
+                    <option value="Spot UV / Spot gloss">Spot UV / Spot gloss</option>
+                    <option value="Raised Spot / UV">Raised Spot / UV</option>
+                    <option value="Holographic Foiling">Holographic Foiling</option>
+                </select>
+                <select
+                    name="lamination"
+                    value={formData.lamination}
+                    onChange={handleChange}
+                    className="border p-1.5 col-span-12 md:col-span-4 text-black placeholder:text-black"
+                >
+                    <option value="" disabled selected>Lamination</option>
+                    <option value="Glossy lamination">Glossy lamination</option>
+                    <option value="Matte lamination">Matte lamination</option>
+                    <option value="Soft touch / Silk lamination">Soft touch / Silk lamination</option>
+                    <option value="Aqueous coating">Aqueous coating</option>
+                    <option value="Crystal UV / Liquid UV">Crystal UV / Liquid UV</option>
+                </select>
             </div>
-            <div className="grid grid-cols-12 gap-4 mb-4 border-b-2 border-dashed border-black pb-4">
+            <div className="grid grid-cols-12 gap-2 mb-2 border-b-2 border-dashed border-black pb-4">
+
                 <input
                     required
                     type="number"
@@ -199,16 +249,15 @@ const MainForm = ({ slug, title }) => {
                     value={formData.quantity}
                     onChange={handleChange}
                     placeholder="Quantity"
-                    className="border p-2 rounded col-span-12 md:col-span-6 text-black placeholder:text-black"
+                    className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
                 />
-
                 <select
                     name="stock"
                     value={formData.stock}
                     onChange={handleChange}
-                    className="border p-2 rounded col-span-12 md:col-span-6 text-black placeholder:text-black"
+                    className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
                 >
-                    <option value="" disabled>Stock</option>
+                    <option value="" disabled selected>Stock</option>
                     <option value="210 GSM Cardboard Stock">210 GSM Cardboard Stock</option>
                     <option value="270 GSM Cardboard Stock">270 GSM Cardboard Stock</option>
                     <option value="300 GSM Cardboard Stock">300 GSM Cardboard Stock</option>
@@ -221,14 +270,13 @@ const MainForm = ({ slug, title }) => {
                     <option value="Rigid Stock">Rigid Stock</option>
                     <option value="Other">Other</option>
                 </select>
-
             </div>
             <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Please write any details or message... eg. Printing, Addons, Specific Box type etc."
-                className="placeholder:text-black border p-2 rounded w-full mb-4"
+                className="placeholder:text-black border p-1.5 w-full mb-4"
                 rows="4"
             ></textarea>
 
@@ -254,7 +302,7 @@ const MainForm = ({ slug, title }) => {
                 ) : (
                     <button
                         type="submit"
-                        className="bg-green-500 text-white px-4 py-2 mt-3 rounded hover:bg-green-600"
+                        className="bg-green-500 text-white px-4 py-2 mt-3 hover:bg-green-600"
                     >
                         GET YOUR BEST DEAL
                     </button>

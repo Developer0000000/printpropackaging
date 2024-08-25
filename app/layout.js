@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '@/components/Global/Navbar';
 import Footer from '@/components/Global/Footer';
 
+
 const poppins = Poppins({ weight: '400', subsets: ['latin'] });
 
 export const metadata = {

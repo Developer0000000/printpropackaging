@@ -3,8 +3,9 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
+import { NavDropdown } from '@/config/NavDropdown';
 
-export default function NavMenu({ setSidebarOpen, menuName, menuLists, menuLink }) {
+export default function NavMenu({ setSidebarOpen }) {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -17,16 +18,18 @@ export default function NavMenu({ setSidebarOpen, menuName, menuLists, menuLink 
 
     return (
         <div>
-            <Button className='text-gray-800 font-semibold'
+            <Button className='text-black font-semibold'
                 id="basic-button"
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             >
-                {menuName}
+                CATEGORYS <i class="ri-arrow-down-s-line text-xl"></i>
             </Button>
+
             <Menu
+                className=''
                 id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}
@@ -35,9 +38,13 @@ export default function NavMenu({ setSidebarOpen, menuName, menuLists, menuLink 
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>
-                    <Link href={menuLink} onClick={() => setSidebarOpen(false)}>{menuLists}</Link>
-                </MenuItem>
+                {
+                    NavDropdown.map((item, index) =>
+                        <MenuItem key={index} onClick={handleClose}>
+                            <Link href={item?.titleLink} onClick={() => setSidebarOpen(false)}>{item.title}</Link>
+                        </MenuItem>
+                    )
+                }
             </Menu>
         </div>
     );
