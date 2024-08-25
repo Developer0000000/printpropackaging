@@ -76,27 +76,27 @@ const MainForm = ({ slug, title }) => {
 
       if (response.ok) {
         alert("Email sent successfully!");
-        setFormData({
-          width: "",
-          height: "",
-          depth: "",
-          quantity: "",
-          unit: "",
-          color: "",
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          cardThickness: "",
-          extraFinishes: "",
-          lamination: "",
-          stock: "",
-          printing: "",
-          slug: slug || "",
-          title: title || "",
-        });
-        setImages([]);
-        setImagesPreview([]);
+        // setFormData({
+        //   width: "",
+        //   height: "",
+        //   depth: "",
+        //   quantity: "",
+        //   unit: "",
+        //   color: "",
+        //   name: "",
+        //   email: "",
+        //   phone: "",
+        //   message: "",
+        //   cardThickness: "",
+        //   extraFinishes: "",
+        //   lamination: "",
+        //   stock: "",
+        //   printing: "",
+        //   slug: slug || "",
+        //   title: title || "",
+        // });
+        // setImages([]);
+        // setImagesPreview([]);
         setIsLoading(false);
       } else {
         alert("Failed to send email.");

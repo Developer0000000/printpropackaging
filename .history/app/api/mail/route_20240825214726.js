@@ -34,6 +34,7 @@ export async function POST(request) {
     const imagesLinks = [];
 
     if (images) {
+      console.log("r0", imagesLinks.length);
       let newImages = [];
       if (typeof images === "string") {
         newImages.push(images);
@@ -52,7 +53,7 @@ export async function POST(request) {
         });
       }
     }
-    console.log(imagesLinks);
+    console.log("r1", imagesLinks.length);
 
     const transporter = nodeMailer.createTransport({
       service: "gmail",

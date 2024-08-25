@@ -33,6 +33,8 @@ export async function POST(request) {
 
     const imagesLinks = [];
 
+    // console.log(images);
+
     if (images) {
       let newImages = [];
       if (typeof images === "string") {

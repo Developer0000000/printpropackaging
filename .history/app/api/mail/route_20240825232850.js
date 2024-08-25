@@ -33,6 +33,8 @@ export async function POST(request) {
 
     const imagesLinks = [];
 
+    // console.log(images);
+
     if (images) {
       let newImages = [];
       if (typeof images === "string") {
@@ -66,8 +68,10 @@ export async function POST(request) {
     });
 
     const mailOptions = {
-      from: email,
-      to: "tayyabafzal174@gmail.com",
+      //   from: email,
+      //   to: "tayyabafzal174@gmail.com",
+      to: email,
+      from: "tayyabafzal174@gmail.com",
       subject: `New Inquiry from ${name} to the PrintProPackaging.`,
       text: `
                 ${title && "Product Title: " + title}

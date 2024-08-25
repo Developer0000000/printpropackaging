@@ -68,43 +68,43 @@ const MainForm = ({ slug, title }) => {
       images: images,
     };
 
+    return;
+
     try {
       const response = await fetch("/api/mail", {
         method: "POST",
-        body: JSON.stringify(newData),
+        body: newData,
       });
 
       if (response.ok) {
         alert("Email sent successfully!");
-        setFormData({
-          width: "",
-          height: "",
-          depth: "",
-          quantity: "",
-          unit: "",
-          color: "",
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          cardThickness: "",
-          extraFinishes: "",
-          lamination: "",
-          stock: "",
-          printing: "",
-          slug: slug || "",
-          title: title || "",
-        });
-        setImages([]);
-        setImagesPreview([]);
+        // setFormData({
+        //   width: "",
+        //   height: "",
+        //   depth: "",
+        //   quantity: "",
+        //   unit: "",
+        //   color: "",
+        //   name: "",
+        //   email: "",
+        //   phone: "",
+        //   message: "",
+        //   cardThickness: "",
+        //   extraFinishes: "",
+        //   lamination: "",
+        //   stock: "",
+        //   printing: "",
+        //   slug: slug || "",
+        //   title: title || "",
+        // });
+        // setImages([]);
+        // setImagesPreview([]);
         setIsLoading(false);
       } else {
         alert("Failed to send email.");
       }
     } catch (error) {
       console.error("Error:", error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -116,7 +116,6 @@ const MainForm = ({ slug, title }) => {
 
       reader.onload = () => {
         if (reader.readyState === 2) {
-          console.log(reader.result);
           setImagesPreview((old) => [...old, reader.result]);
           setImages((old) => [...old, reader.result]);
         }

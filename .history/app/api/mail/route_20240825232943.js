@@ -32,7 +32,6 @@ export async function POST(request) {
     } = await request.json();
 
     const imagesLinks = [];
-
     if (images) {
       let newImages = [];
       if (typeof images === "string") {

@@ -47,64 +47,53 @@ const MainForm = ({ slug, title }) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // const myForm = new FormData();
-    // Object.entries(formData).forEach(([key, value]) =>
-    //   myForm.append(key, value)
-    // );
-    // if (images.length > 0) {
-    //   console.log("images");
-    //   images.forEach((image) => {
-    //     console.log(image);
-    //     myForm.append("images", image);
-    //   });
-    // }
+    const myForm = new FormData();
+    Object.entries(formData).forEach(([key, value]) =>
+      myForm.append(key, value)
+    );
+    if (images.length > 0) {
+      images.forEach((image) => myForm.append("images", image));
+    }
 
-    // console.log(myForm);
+    setIsLoading(false);
 
-    // setIsLoading(false);
-
-    const newData = {
-      ...formData,
-      images: images,
-    };
+    return;
 
     try {
       const response = await fetch("/api/mail", {
         method: "POST",
-        body: JSON.stringify(newData),
+        body: JSON.stringify(Object.fromEntries(myForm)),
       });
 
       if (response.ok) {
         alert("Email sent successfully!");
-        setFormData({
-          width: "",
-          height: "",
-          depth: "",
-          quantity: "",
-          unit: "",
-          color: "",
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          cardThickness: "",
-          extraFinishes: "",
-          lamination: "",
-          stock: "",
-          printing: "",
-          slug: slug || "",
-          title: title || "",
-        });
-        setImages([]);
-        setImagesPreview([]);
+        // setFormData({
+        //   width: "",
+        //   height: "",
+        //   depth: "",
+        //   quantity: "",
+        //   unit: "",
+        //   color: "",
+        //   name: "",
+        //   email: "",
+        //   phone: "",
+        //   message: "",
+        //   cardThickness: "",
+        //   extraFinishes: "",
+        //   lamination: "",
+        //   stock: "",
+        //   printing: "",
+        //   slug: slug || "",
+        //   title: title || "",
+        // });
+        // setImages([]);
+        // setImagesPreview([]);
         setIsLoading(false);
       } else {
         alert("Failed to send email.");
       }
     } catch (error) {
       console.error("Error:", error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -116,7 +105,6 @@ const MainForm = ({ slug, title }) => {
 
       reader.onload = () => {
         if (reader.readyState === 2) {
-          console.log(reader.result);
           setImagesPreview((old) => [...old, reader.result]);
           setImages((old) => [...old, reader.result]);
         }

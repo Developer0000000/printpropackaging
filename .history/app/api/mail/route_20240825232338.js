@@ -52,7 +52,7 @@ export async function POST(request) {
         });
       }
     }
-    console.log(imagesLinks);
+    console.log("r1", imagesLinks.length);
 
     const transporter = nodeMailer.createTransport({
       service: "gmail",
