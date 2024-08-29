@@ -33,7 +33,7 @@ export async function POST(request) {
         });
       }
     }
-    console.log(imagesLinks);
+    // console.log(imagesLinks);
 
     const transporter = nodeMailer.createTransport({
       service: "gmail",
@@ -52,7 +52,7 @@ export async function POST(request) {
       subject: `New Inquiry from ${name} to the PrintProPackaging.`,
       text: `
                 ${title && "Product Title: " + title}
-                ${slug && `Product Link: ${process.env.NEXT_BASE_URL}/product/${slug}`}
+                ${slug && `Product Link: ${process.env.NEXT_BASE_URL}product/${slug}`}
                 Name: ${name}
                 Email: ${email}
                 Phone: ${phone}

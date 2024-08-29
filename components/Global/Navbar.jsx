@@ -11,12 +11,15 @@ export default function Component() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+    const [activeLink, setActiveLink] = useState('/');
+
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
 
-    const openSearch = () => setIsSearchOpen(true);
-    const closeSearch = () => setIsSearchOpen(false);
+    const onUpdateActiveLink = (event) => {
+        setActiveLink(event);
+      };
 
     return (
         <div className="w-full">
@@ -36,19 +39,21 @@ export default function Component() {
                 </div>
 
                 <div className='flex items-center space-x-6'>
-                    <Link href="/" className="text-sm text-gray-800 font-semibold" prefetch={false}>
+                    <Link onClick={() => onUpdateActiveLink('/')} href="/" className={` ${activeLink === '/' ? "border-b-2 border-black rounded underline underline-offset-4" : "text-gray-800"} text-sm font-semibold`} prefetch={false}>
                         HOME
                     </Link>
 
                     <NavMenu />
 
-                    <Link href="/about" className="text-sm text-gray-800 font-semibold" prefetch={false}>
+                    <Link onClick={() => onUpdateActiveLink('/about')} href="/about" className={` ${activeLink === '/about' ? "border-b-2 border-black rounded underline underline-offset-4" : "text-gray-800"} text-sm font-semibold`} prefetch={false}>
                         ABOUT US
                     </Link>
-                    <Link href="/blogs" className="text-sm text-gray-800 font-semibold" prefetch={false}>
+
+                    <Link onClick={() => onUpdateActiveLink('/blogs')} href="/blogs" className={` ${activeLink === '/blogs' ? "border-b-2 border-black rounded underline underline-offset-4" : "text-gray-800"} text-sm font-semibold`} prefetch={false}>
                         BLOGS
                     </Link>
-                    <Link href="/contact" className="text-sm text-gray-800 font-semibold" prefetch={false}>
+
+                    <Link onClick={() => onUpdateActiveLink('/contact')} href="/contact" className={` ${activeLink === '/contact' ? "border-b-2 border-black rounded underline underline-offset-4" : "text-gray-800"} text-sm font-semibold`} prefetch={false}>
                         CONTACT
                     </Link>
                 </div>
@@ -117,7 +122,6 @@ export default function Component() {
                 </div>
             </div>
 
-            {/* <SearchModal isOpen={isSearchOpen} onClose={closeSearch} /> */}
         </div>
     );
 }

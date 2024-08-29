@@ -60,6 +60,10 @@ input[type=number] {
   border-radius: 5px;
 }
 
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  color: black;
+}
+
 
 
 
@@ -235,7 +239,7 @@ textarea {
   overflow: auto;
 }
 
-#imagesPreview > img {
+#imagesPreview>img {
   margin: 0 0.5vmax;
 }
 

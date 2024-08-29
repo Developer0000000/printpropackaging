@@ -25,7 +25,7 @@ export default function NavMenu({ setSidebarOpen }) {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             >
-                CATEGORYS <i class="ri-arrow-down-s-line text-xl"></i>
+                CATEGORYS <i className="ri-arrow-down-s-line text-xl"></i>
             </Button>
 
             <Menu
