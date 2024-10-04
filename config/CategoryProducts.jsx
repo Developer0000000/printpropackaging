@@ -7,7 +7,7 @@ import food from '@/assets/Cake Boxes.png'
 import display from '@/assets/CBD Display Boxes.png'
 
 
-export const CategoryProducts = [
+export default CategoryProducts = [
     {
         title: 'CBD Boxes',
         slug: 'CBD-Boxes',

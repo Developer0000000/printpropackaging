@@ -1,5 +1,5 @@
 import React from 'react'
-import { CategoryProducts } from '@/config/categoryProducts';
+import CategoryProducts from '../../config/CategoryProducts';
 import Link from 'next/link';
 import Image from 'next/image';
 
