@@ -1,12 +1,13 @@
 import React from 'react'
 import PageTitle from '@/components/Global/pageTitle'
 import Image from 'next/image'
+import Testimonials from '@/components/Home/Testimonials'
 
 const About = () => {
   return (
     <>
       <PageTitle currentPageTitle='About PrintPro Packaging' currentPage='About' prevPage='Home' />
-      <section className='md:p-20 px-4 py-20'>
+      <section className='md:px-20 md:pt-20 md:pb-10 px-4 py-20'>
 
         <div className='text-center'>
           <h4 className='text-2xl font-bold'>About Us</h4>
@@ -119,6 +120,7 @@ const About = () => {
 
         </section>
 
+        <Testimonials />
 
       </section>
     </>

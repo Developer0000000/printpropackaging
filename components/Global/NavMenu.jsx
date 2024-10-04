@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
-import { NavDropdown } from '@/config/NavDropdown';
 
 export default function NavMenu({ setSidebarOpen }) {
 
@@ -38,13 +37,11 @@ export default function NavMenu({ setSidebarOpen }) {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                {
-                    NavDropdown.map((item, index) =>
-                        <MenuItem key={index} onClick={handleClose}>
-                            <Link href={item?.titleLink} onClick={() => setSidebarOpen(false)}>{item.title}</Link>
-                        </MenuItem>
-                    )
-                }
+
+                <MenuItem onClick={handleClose}>
+                    <Link href='' onClick={() => setSidebarOpen(false)}>title</Link>
+                </MenuItem>
+
             </Menu>
         </div>
     );

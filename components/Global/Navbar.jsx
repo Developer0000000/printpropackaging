@@ -5,6 +5,7 @@ import NavMenu from './NavMenu';
 import NavMenu2 from './NavMenu2';
 import Button from './Button';
 import Image from 'next/image';
+import Logo from '../../assets/Logo.png';
 // import SearchModal from './SearchModal'; // Make sure this component exists
 
 export default function Component() {
@@ -19,7 +20,7 @@ export default function Component() {
 
     const onUpdateActiveLink = (event) => {
         setActiveLink(event);
-      };
+    };
 
     return (
         <div className="w-full">
@@ -30,28 +31,18 @@ export default function Component() {
                 <div className="flex items-center">
                     <div className="items-center space-x-1 flex border-r-4 pr-2 border-black">
                         <PhoneIcon className="text-black" />
-                        <p className="text-orange-500 font-bold">+1 501-553-4722</p>
+                        <p className="text-orange-500 font-bold">+1 719-204-4173</p>
                     </div>
                     <div className="items-center space-x-1 flex pl-2">
                         <i className="ri-send-plane-fill text-xl"></i>
-                        <a href="mailto:sales@printpropackaging">sales@printpropackaging.com</a>
+                        <a href="mailto:sales@printpropackaging.com">sales@printpropackaging.com</a>
                     </div>
                 </div>
 
                 <div className='flex items-center space-x-6'>
-                    <Link onClick={() => onUpdateActiveLink('/')} href="/" className={` ${activeLink === '/' ? "border-b-2 border-black rounded underline underline-offset-4" : "text-gray-800"} text-sm font-semibold`} prefetch={false}>
-                        HOME
-                    </Link>
 
                     <NavMenu />
 
-                    <Link onClick={() => onUpdateActiveLink('/about')} href="/about" className={` ${activeLink === '/about' ? "border-b-2 border-black rounded underline underline-offset-4" : "text-gray-800"} text-sm font-semibold`} prefetch={false}>
-                        ABOUT US
-                    </Link>
-
-                    <Link onClick={() => onUpdateActiveLink('/blogs')} href="/blogs" className={` ${activeLink === '/blogs' ? "border-b-2 border-black rounded underline underline-offset-4" : "text-gray-800"} text-sm font-semibold`} prefetch={false}>
-                        BLOGS
-                    </Link>
 
                     <Link onClick={() => onUpdateActiveLink('/contact')} href="/contact" className={` ${activeLink === '/contact' ? "border-b-2 border-black rounded underline underline-offset-4" : "text-gray-800"} text-sm font-semibold`} prefetch={false}>
                         CONTACT
@@ -63,19 +54,17 @@ export default function Component() {
             <div className="flex sm:hidden items-center justify-center flex-wrap border-b border-black pt-4 pb-3">
                 <div className="items-center space-x-1 flex">
                     <PhoneIcon className="text-black" />
-                    <p className="text-orange-500 font-bold">+1 501-553-4722</p>
+                    <p className="text-orange-500 font-bold">+1 719-204-4173</p>
                 </div>
                 <div className="items-center space-x-1 flex pl-2">
                     <i className="ri-send-plane-fill text-xl"></i>
-                    <a href="mailto:sales@printpropackaging">sales@printpropackaging.com</a>
+                    <a href="mailto:sales@printpropackaging.com">sales@printpropackaging.com</a>
                 </div>
             </div>
-            <div className="flex items-center justify-between p-4 border-b px-4 md:px-[var(--paddingX)]">
-                <Link href='/' className="flex items-center space-x-4">
-                    <Image width={50} height={50} src="/placeholder.svg" alt="Logo" className="h-12" />
-                    <div>
-                        <h1 className="text-xl font-bold uppercase">PrintPro</h1>
-                        <p className="text-sm">PACKAGING</p>
+            <div className="flex relative items-center justify-between p-4 border-b bg-transparent px-4 md:px-[var(--paddingX)]">
+                <Link onClick={() => onUpdateActiveLink('/')} href='/'>
+                    <div className="absolute top-1/2 -translate-y-1/2 sm:-left-14 -left-20">
+                        <Image width={400} height={100} src={Logo} alt="Logo" className="h-12 object-cover" />
                     </div>
                 </Link>
                 <i onClick={toggleSidebar} className="ri-menu-5-line text-4xl cursor-pointer md:hidden block"></i>
@@ -87,12 +76,10 @@ export default function Component() {
 
             {/* Sidebar */}
             <div className={`fixed inset-0 z-50 bg-white transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}>
-                <div className="flex items-center justify-between p-4 border-b">
-                    <Link href='/' className="flex items-center space-x-4">
-                        <Image width={50} height={50} src="/placeholder.svg" alt="Logo" className="h-12" />
-                        <div>
-                            <h1 className="text-xl font-bold uppercase">PrintPro</h1>
-                            <p className="text-sm">PACKAGING</p>
+                <div className="flex items-center justify-between p-4 border-b relative">
+                    <Link href='/'>
+                        <div className="absolute top-1/2 -translate-y-1/2 -left-20">
+                            <Image width={400} height={100} src={Logo} alt="Logo" className="h-12 object-cover" />
                         </div>
                     </Link>
                     <button onClick={toggleSidebar} className="text-gray-900 text-4xl">

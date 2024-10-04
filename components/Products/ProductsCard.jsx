@@ -6,15 +6,14 @@ import React from 'react';
 export default function ProductsCard({ slug, title, images }) {
     
     const imageUrl = urlFor(images[0]).url();
-
+    // console.log(imageUrl)
     return (
         <>
             <Link href={`/product/${slug}`}>
-                <div className="relative w-64 rounded-lg border p-3">
-                    <Image width={500} height={500} alt='image' className='rounded-lg h-48 object-cover w-full' src={imageUrl} />
+                <div className="relative w-64 h-full rounded-lg p-1.5 shadow-md">
+                    <Image width={500} height={500} alt='image' className='rounded-lg h-fit object-cover w-full' src={imageUrl} />
                     <div className="mt-1 py-2 text-center">
-                        <p className="title-font text-lg font-medium capitalize">{title}</p>
-                        <p className="font-semibold underline underline-offset-4">Get Your Price</p>
+                        <p className="title-font font-medium capitalize bg-white">{title}</p>
                     </div>
                 </div>
             </Link>

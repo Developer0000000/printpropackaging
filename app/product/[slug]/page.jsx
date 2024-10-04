@@ -1,12 +1,11 @@
-import Accordions from '@/components/Global/Accordions';
+import React from 'react';
 import MainForm from '@/components/Global/form/MainForm';
 import PageTitle from '@/components/Global/pageTitle';
 import ProductContent from '@/components/Products/ProductContent';
 import ProductQuality from '@/components/Products/ProductQuality';
 import ProductSwiper from '@/components/Products/ProductSwiper';
 import { client } from '@/sanity/lib/client';
-import Link from 'next/link';
-import React from 'react';
+import RelatedProducts from '@/components/Products/RelatedProducts';
 
 export const revalidate = 60;
 
@@ -19,7 +18,7 @@ export const generateStaticParams = async () => {
 
 export default async function Product({ params }) {
 
-    const query = `*[_type == "product" && slug.current == "${params.slug}" ]{title,description,images,content}[0]`;
+    const query = `*[_type == "product" && slug.current == "${params.slug}" ]{title,description,images,content,category}[0]`;
     const productData = await client.fetch(query);
 
     return (
@@ -34,16 +33,16 @@ export default async function Product({ params }) {
                     <ProductQuality icon={<i className="ri-shield-flash-fill"></i>} title="Proper Quality Assured" />
                 </div>
                 <div className="text-gray-600 body-font">
-                    <div className="container mx-auto flex pt-20 md:flex-row flex-col items-start gap-6 text-sm">
+                    <div className="flex pt-12 md:flex-row flex-col items-start gap-6 text-sm">
                         <div className='w-full md:w-[40%]'>
                             <ProductSwiper images={productData.images} />
-                        </div>
-                        <div className='w-full md:w-[60%]'>
                             {
                                 productData.description && <div>
-                                    <p className='leading-[1.8] mb-8'>{productData.description}</p>
+                                    <p className='leading-[1.8] my-4'>{productData.description}</p>
                                 </div>
                             }
+                        </div>
+                        <div className='w-full md:w-[60%]'>
                             <div style={{ backgroundImage: 'url(/images/pattern_bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} className="p-8 rounded-lg shadow-lg w-full max-w-2xl relative z-50 overflow-auto h-full md:h-auto">
                                 <div className="mb-4 p-2 bg-[#2e4057] ">
                                     <h2 className="font-semibold text-white text-center">PRICE ON REQUEST</h2>
@@ -59,7 +58,7 @@ export default async function Product({ params }) {
                 </div>
 
                 <div className='h-full w-full relative'>
-                    <Accordions />
+                    <RelatedProducts title={productData.title} category={productData.category} />
                 </div>
 
             </section>

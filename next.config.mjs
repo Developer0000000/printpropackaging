@@ -11,6 +11,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'blackbirdpackaging.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'mms.businesswire.com',
+            }
         ]
     }
 };

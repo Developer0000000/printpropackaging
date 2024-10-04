@@ -60,20 +60,20 @@ const Contact = () => {
     <>
       <PageTitle currentPageTitle='Contact PrintPro Packaging' currentPage='Contact' prevPage='Home' />
 
-      <section className='md:px-[var(--paddingX)] px-4 py-20 h-full w-full relative'>
-        <div className='grid grid-cols-12 md:gap-10 gap-y-8'>
-          {ContactInfo.map((item, index) => (
-            <div key={index} className='text-center flex justify-center rounded-lg py-10 px-6 space-y-2 items-center flex-col col-span-12 md:col-span-4 bg-slate-100'>
-              <div className='text-4xl bg-black text-white size-16 rounded-full flex items-center justify-center'>{item.icon}</div>
-              <h4 className='text-2xl font-bold'>{item.title}</h4>
-              <p>{item.description}</p>
-            </div>
-          ))}
-        </div>
+      <section className='md:px-[var(--paddingX)] px-4 pb-10 h-full w-full relative'>
 
         <section className="text-gray-600 body-font relative">
           <div className="container md:px-5 py-14 md:py-24 mx-auto flex sm:flex-nowrap flex-wrap gap-10">
-            <form className="lg:w-[45%] md:w-1/2 bg-gray-50 rounded-lg px-6 flex flex-col md:ml-auto w-full py-8" onSubmit={handleSubmit}>
+            <div className='flex flex-col justify-center md:gap-4 gap-y-3'>
+              {ContactInfo.map((item, index) => (
+                <div key={index} className='text-center flex justify-center rounded-lg py-6 px-6 space-y-2 items-center flex-col col-span-12 md:col-span-4 bg-slate-100'>
+                  <div className='text-2xl bg-black text-white size-10 rounded-full flex items-center justify-center'>{item.icon}</div>
+                  <h4 className='text-xl font-bold'>{item.title}</h4>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+            <form className="lg:w-[45%] h-auto md:w-1/2 bg-gray-50 rounded-lg px-6 flex flex-col md:ml-auto w-full py-8" onSubmit={handleSubmit}>
               <h2 className="text-gray-900 text-2xl font-bold title-font pb-4">Write Us Your Concerns</h2>
               <div className="relative mb-6">
                 <input
@@ -137,25 +137,9 @@ const Contact = () => {
                 )}
               </div>
             </form>
-            <div className="lg:w-[55%] md:w-1/2 w-full h-[70vh] md:h-auto bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-              <iframe
-                width="100%"
-                height="100%"
-                className="absolute inset-0"
-                frameBorder="0"
-                title="map"
-                marginHeight="0"
-                marginWidth="0"
-                scrolling="no"
-                src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
-              ></iframe>
-            </div>
           </div>
         </section>
 
-        <section className='h-full w-full relative'>
-          <Accordions />
-        </section>
       </section>
     </>
   );
