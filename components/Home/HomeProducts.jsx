@@ -1,12 +1,12 @@
 import React from 'react'
-import CategoryProducts from '../../config/CategoryProducts';
+import { CategoryProducts } from '../../config/CategoryProducts';
 import Link from 'next/link';
 import Image from 'next/image';
 
 
 const HomeProducts = () => {
 
-    return (
+    return (  
         <>
             <div className='px-4 md:px-[var(--paddingX)] pb-20 pt-10 homeProducts'>
                 <div className='flex md:justify-start justify-center flex-wrap my-8 gap-5'>

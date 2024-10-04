@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import payoneer from '@/assets/payoneer.jpg'
 
 const Footer = () => {
     return (
@@ -92,7 +93,7 @@ const Footer = () => {
                             <Image width={50} height={50} className='size-10' src="https://blackbirdpackaging.com/assets/images/paypal.svg" alt="PayPal Payment" />
                             <Image width={50} height={50} className='size-10' src="https://blackbirdpackaging.com/assets/images/amex.svg" alt="American Express Payment" />
                             <Image width={50} height={50} className='size-10' src="https://blackbirdpackaging.com/assets/images/stripe.svg" alt="Stripe Payment" />
-                            <Image width={50} height={50} src="https://mms.businesswire.com/media/20210330006017/en/772916/23/logo-payoneer.jpg" alt="Payoneer Payment" />
+                            <Image width={50} height={50} src={payoneer} alt="Payoneer Payment" />
                         </div>
                     </div>
                 </div>
