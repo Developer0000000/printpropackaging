@@ -79,12 +79,12 @@ const MainForm = ({ slug, title }) => {
                 body: JSON.stringify(newData),
             });
 
-            console.log(response.ok);
+            // console.log(response.ok);
             if (response.ok) {
-                console.log(response.ok);
+                // console.log(response.ok);
                 setIsLoading(false);
                 router.push("/thank_you");
-                console.log('thank_you');
+                // console.log('thank_you');
                 
                 document.querySelector('.pop__up').style.display = 'none';
                 setFormData({

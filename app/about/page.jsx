@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <PageTitle currentPageTitle='About PrintPro Packaging' currentPage='About' prevPage='Home' />
-      <section className='md:px-20 md:pt-20 md:pb-10 px-4 py-20'>
+      <section className='md:px-[var(--paddingX)] md:pt-20 md:pb-10 px-4 py-20'>
 
         <div className='text-center'>
           <h4 className='text-2xl font-bold'>About Us</h4>
@@ -49,7 +49,7 @@ const About = () => {
           </div>
         </section>
 
-        <section className='my-20 relative w-full'>
+        <section className='my-20 relative w-full form_bg'>
           <div className="absolute top-10 right-10 opacity-10">
             <Image width={600} height={600} src="/images/box_art.webp" alt="" />
           </div>
@@ -95,24 +95,24 @@ const About = () => {
             <p>Browse The Features of Packaging at PrintPro Packaging</p>
           </div>
 
-          <div className='space-y-6 w-full pt-10'>
-            <div className="flex flex-col md:flex-row items-start gap-6 w-full">
-              <div className='md:h-[47vh]  md:w-[50vw] text-sm leading-[1.7] py-6 px-8 rounded-lg bg-gray-50 '>
-                <h2 className='text-3xl font-bold pb-4 text-orange-500'>0.1 &ensp; Embossing</h2>
+          <div className='space-y-6 w-full pt-10 h-full'>
+            <div className="flex flex-col md:flex-row items-start gap-4 w-full h-full">
+              <div className='h-full md:w-[50vw] text-sm leading-[1.7] py-6 px-8 rounded-lg bg-gray-50 '>
+                <h2 className='text-3xl font-bold pb-4 secondary_text'>0.1 &ensp; Embossing</h2>
                 <p >Embossing is the technique of producing a raised image on a surface. The method of embossing produces a three-dimensional impression of the targeted region. The embossing method often necessitates the use of two dies. The first die is elevated, while the second die is lowered. When paper or other material is squeezed between the two dies, the raised die drives the targeted material into the recessed die. When done correctly, this method produces an embossed imprint without harming or ripping the targeted region.</p>
               </div>
-              <div className='md:h-[47vh]  md:w-[50vw] text-sm leading-[1.7] py-6 px-8 rounded-lg bg-gray-50 '>
-                <h2 className='text-3xl font-bold pb-4 text-orange-500'>0.2 &ensp;Spot UV</h2>
+              <div className='h-full md:w-[50vw] text-sm leading-[1.7] py-6 px-8 rounded-lg bg-gray-50 '>
+                <h2 className='text-3xl font-bold pb-4 secondary_text'>0.2 &ensp;Spot UV</h2>
                 <p >Spot UV is the process of putting a transparent, glossy coating on particular parts of a printed surface. This application stands out from the surrounding surfaces, which are normally coated with a matte laminate or paint. Spot UV is frequently used to emphasise brand logos and other essential visuals. Furthermore, Spot UV treatment is frequently paired with embossing, sometimes known as UV embossing, to produce a vivid and sumptuous impression.</p>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row items-start gap-6 w-full">
-              <div className='h-1/2 text-sm leading-[1.7] py-6 px-8 rounded-lg bg-gray-50 '>
-                <h2 className='text-3xl font-bold pb-4 text-orange-500'>0.3 &ensp;Foil Stamping</h2>
+            <div className="flex flex-col md:flex-row items-start gap-4 w-full h-full">
+              <div className='h-full text-sm leading-[1.7] py-6 px-8 rounded-lg bg-gray-50 '>
+                <h2 className='text-3xl font-bold pb-4 secondary_text'>0.3 &ensp;Foil Stamping</h2>
                 <p >Foil stamping, too known as hot stamping or thwart printing, could be a particular printing innovation that employments warm, weight, and metal passes on to apply foil film to a printed surface. Foil film is often offered in rolls and is available in a wide range of colours, coatings, and optical effects. While metallic foils like gold, silver, or copper are the most common, rich-appearing solid colours like red, green, purple, blue, and black can also be used.</p>
               </div>
-              <div className='h-1/2 text-sm leading-[1.7] py-6 px-8 rounded-lg bg-gray-50 '>
-                <h2 className='text-3xl font-bold pb-4 text-orange-500'>0.4 &ensp;Die Cutting</h2>
+              <div className='h-full text-sm leading-[1.7] py-6 px-8 rounded-lg bg-gray-50 '>
+                <h2 className='text-3xl font-bold pb-4 secondary_text'>0.4 &ensp;Die Cutting</h2>
                 <p >Foil stamping, too known as hot stamping or thwart printing, could be a particular printing innovation that employments warm, weight, and metal passes on to apply foil film to a printed surface. Foil film is often offered in rolls and is available in a wide range of colours, coatings, and optical effects. While metallic foils like gold, silver, or copper are the most common, rich-appearing solid colours like red, green, purple, blue, and black can also be used.</p>
               </div>
             </div>

@@ -12,7 +12,6 @@ const RelatedProducts = async ({ title, category }) => {
     }`;
 
     const products = await client.fetch(query);
-    console.log(products)
     return (
         <>
             {products.length > 1 &&

@@ -11,8 +11,20 @@
 }
 
 :root {
-  --color_golden: #efa92b;
+  --color_golden: #85fff3;
   --paddingX: 40px;
+
+  --primary: #c2fff9;
+  --secondary: #85fff3;
+
+  --dark_primary:#057a6f;
+  --dark_secondary:#07af8c;
+}
+
+body {
+  background: var(--primary);
+  /* background: #057a6f; */
+  /* background: #07af8c; */
 }
 
 ::-webkit-scrollbar {
@@ -76,27 +88,6 @@ input[type=number] {
 
 
 
-
-.homeProducts .react-tabs__tab--selected button {
-  border: 2px solid #f97316 !important;
-  border-bottom: 5px solid #f97316 !important;
-}
-
-
-
-.product .react-tabs__tab--selected button {
-  background-color: #f97316 !important;
-  color: white !important;
-}
-
-.product .react-tabs__tab button {
-  transition: all .3s ease-in;
-}
-
-.product .react-tabs__tab button:hover {
-  background-color: #f97316 !important;
-  color: white !important;
-}
 
 
 .swiper-button-next,
@@ -296,4 +287,40 @@ textarea {
   width: 100%;
   overflow: hidden;
   line-height: 0;
+}
+
+
+
+
+.homeProducts .react-tabs__tab--selected button {
+  border: 2px solid var(--dark_primary) !important;
+  border-bottom: 5px solid var(--dark_primary) !important;
+}
+
+
+
+.product .react-tabs__tab--selected button {
+  background-color: var(--dark_primary) !important;
+  color: white !important;
+}
+
+.product .react-tabs__tab button {
+  transition: all .3s ease-in;
+}
+
+.product .react-tabs__tab button:hover {
+  background-color: var(--dark_primary) !important;
+  color: white !important;
+}
+
+
+
+/* utils  */
+
+.secondary_text{
+  color: var(--dark_secondary);
+}
+
+.form_bg {
+  background-color: whitesmoke;
 }

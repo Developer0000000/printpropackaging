@@ -130,7 +130,7 @@ const Contact = () => {
                 ) : (
                   <button
                     type="submit"
-                    className="text-white w-fit bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded text-lg"
+                    className="text-white w-fit secondary_text border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded text-lg"
                   >
                     Submit
                   </button>

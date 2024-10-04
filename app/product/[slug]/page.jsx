@@ -43,7 +43,7 @@ export default async function Product({ params }) {
                             }
                         </div>
                         <div className='w-full md:w-[60%]'>
-                            <div style={{ backgroundImage: 'url(/images/pattern_bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} className="p-8 rounded-lg shadow-lg w-full max-w-2xl relative z-50 overflow-auto h-full md:h-auto">
+                            <div className="form_bg p-8 rounded-lg shadow-lg w-full max-w-2xl relative z-50 overflow-auto h-full md:h-auto">
                                 <div className="mb-4 p-2 bg-[#2e4057] ">
                                     <h2 className="font-semibold text-white text-center">PRICE ON REQUEST</h2>
                                 </div>

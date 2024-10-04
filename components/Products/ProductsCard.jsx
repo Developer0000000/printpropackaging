@@ -10,7 +10,7 @@ export default function ProductsCard({ slug, title, images }) {
     return (
         <>
             <Link href={`/product/${slug}`}>
-                <div className="relative w-64 h-full rounded-lg p-1.5 shadow-md">
+                <div className="relative w-64 h-full rounded-lg p-1.5 shadow-md bg-white">
                     <Image width={500} height={500} alt='image' className='rounded-lg h-fit object-cover w-full' src={imageUrl} />
                     <div className="mt-1 py-2 text-center">
                         <p className="title-font font-medium capitalize bg-white">{title}</p>

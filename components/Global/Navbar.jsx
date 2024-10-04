@@ -10,7 +10,6 @@ import Logo from '../../assets/Logo.png';
 
 export default function Component() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const [activeLink, setActiveLink] = useState('/');
 
@@ -31,7 +30,7 @@ export default function Component() {
                 <div className="flex items-center">
                     <div className="items-center space-x-1 flex border-r-4 pr-2 border-black">
                         <PhoneIcon className="text-black" />
-                        <p className="text-orange-500 font-bold">+1 719-204-4173</p>
+                        <p className="secondary_text font-bold">+1 719-204-4173</p>
                     </div>
                     <div className="items-center space-x-1 flex pl-2">
                         <i className="ri-send-plane-fill text-xl"></i>
@@ -54,7 +53,7 @@ export default function Component() {
             <div className="flex sm:hidden items-center justify-center flex-wrap border-b border-black pt-4 pb-3">
                 <div className="items-center space-x-1 flex">
                     <PhoneIcon className="text-black" />
-                    <p className="text-orange-500 font-bold">+1 719-204-4173</p>
+                    <p className="secondary_text font-bold">+1 719-204-4173</p>
                 </div>
                 <div className="items-center space-x-1 flex pl-2">
                     <i className="ri-send-plane-fill text-xl"></i>

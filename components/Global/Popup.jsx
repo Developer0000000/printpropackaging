@@ -10,8 +10,8 @@ const Popup = ({ isOpen, onClose }) => {
     return (
         <>
             {isOpen &&
-                <div className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-500 pop__up`}>
-                    <div style={{ backgroundImage: 'url(/images/pattern_bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} className="p-8 rounded-lg shadow-lg w-full max-w-2xl relative z-50 overflow-auto h-[70vh] md:h-[85vh] quote_box">
+                <div className={`fixed inset-0 flex items-center justify-center z-[999999] transition-all duration-500 pop__up`}>
+                    <div className="form_bg p-8 rounded-lg shadow-lg w-full max-w-2xl relative z-[999999] overflow-auto h-[70vh] md:h-[85vh] quote_box">
                         <div className="flex justify-between items-center mb-4 p-2 bg-[#2e4057] rounded-md text-white w-full">
                             <h2 className="font-semibold text-white text-center uppercase">Get a Free Quote</h2>
                             <button onClick={onClose} className="text-white">

@@ -9,8 +9,8 @@ export default function PageTitle({ currentPageTitle, currentPage, prevPage }) {
                     <p>{currentPageTitle}</p>
                 </div>
                 <div className='capitalize'>
-                    <Link href={ prevPage==="Home" ? "/" : `/${prevPage}`}> <span> {prevPage} </span> </Link>
-                    <span className='text-orange-500'>/ {currentPage}</span>
+                    <Link href={prevPage === "Home" ? "/" : `/${prevPage}`}> <span> {prevPage} </span> </Link>
+                    <span className='secondary_text'>/ {currentPage}</span>
                 </div>
             </div>
         </>

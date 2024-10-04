@@ -20,7 +20,7 @@ const BlogsCard = ({ blogImg, title, description, id }) => {
                     <div className="card-footer my-4 ">
                         <h6 className="text-lg font-semibold uppercase">{title ? title.slice(0, 34) : title}...</h6>
                         <p className='py-4 text-[.9rem] text-justify'>{description ? description.slice(0, 150) : description}....</p>
-                        {/* <button type='button' className="bg-orange-500 px-2 rounded-sm tracking-[1px]">{category}</button> */}
+                        {/* <button type='button' className="secondary_text px-2 rounded-sm tracking-[1px]">{category}</button> */}
                     </div>
                     <div className="flex items-center justify-between relative">
                         <Link href={`/blog/${id}`} className="border border-black rounded-sm flex items-center" style={{ padding: '.65rem 1.3rem' }}>Read More

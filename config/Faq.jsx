@@ -8,9 +8,9 @@ export const Faq1 = [
             You may obtain a customized price quotation by:
 
             <ul style={{ listStyleType: "disc", paddingLeft: "20px" }} className="my-4 space-y-2">
-                <li>Visiting our <Link className="text-orange-500 underline underline-offset-4" href='/contact'>‘Request a Quote Page’</Link> or submitting a quote request on any of the product pages</li>
+                <li>Visiting our <Link className="secondary_text underline underline-offset-4" href='/contact'>‘Request a Quote Page’</Link> or submitting a quote request on any of the product pages</li>
                 <li>Contacting the sales staff via our online Chat feature</li>
-                <li>Send an email with your project specifics to <a className="text-orange-500 underline underline-offset-4" href="mailto: sales@printpropackaging.com"> sales@printpropackaging.com</a></li>
+                <li>Send an email with your project specifics to <a className="secondary_text underline underline-offset-4" href="mailto: sales@printpropackaging.com"> sales@printpropackaging.com</a></li>
                 <li>Calling us</li>
             </ul>
 
