@@ -1,0 +1,33 @@
+a
+s 
+d
+f
+j
+k
+l
+; 
+
+Specifications.jsx
+page.jsx
+product
+
+
+[asc, desc]
+
+*[_type == "product"] | order(_createdAt asc) {
+  title,
+    "slug":slug.current,
+    category,description,images,content,specifications
+}[50...70]
+
+
+
+
+contact.js
+
+cbd boxes
+retail boxes
+custom eco friendly boxes
+custom cosmetic boxes
+custom food & beverage boxes
+custom display packaging

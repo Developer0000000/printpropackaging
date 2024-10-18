@@ -1,0 +1,435 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+:root {
+  --color_golden: #85fff3;
+  --paddingX: 40px;
+
+  --primary: #c2fff9;
+  --secondary: #85fff3;
+
+  --dark_primary: #057a6f;
+  --dark_secondary: #07af8c;
+}
+
+
+
+body {
+  background: var(--primary);
+  /* background: #057a6f; */
+  /* background: #07af8c; */
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+/*# utils */
+
+.text__golden {
+  color: var(--color_golden);
+  color: var(--primary);
+}
+
+.hover_text__golden {
+  font-size: 14.5px;
+}
+
+.hover_text__golden:hover {
+  color: var(--color_golden);
+}
+
+.css-1086bdv-MuiPaper-root-MuiAccordion-root.Mui-expanded {
+  margin: 0 !important;
+}
+
+.css-1086bdv-MuiPaper-root-MuiAccordion-root {
+  border-radius: 5px;
+}
+
+.css-1f773le-MuiButtonBase-root-MuiAccordionSummary-root {
+  background-color: #D3D3D3 !important;
+  border-radius: 5px;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  color: black;
+}
+
+
+
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  padding: 16px 20px;
+  color: white !important;
+  background: #444 !important;
+  border-radius: 4px;
+  display: none !important;
+}
+
+.mySwiper:hover .swiper-button-next,
+.mySwiper:hover .swiper-button-prev {
+  display: flex !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
+}
+
+
+
+/*# loader */
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  border: 4.5px solid #0000;
+  border-radius: 50%;
+  border-color: #000000 #0000;
+  animation: spinner-e04l1k 1s infinite linear;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2.2px;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  border-color: #000000 #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.spinner::after {
+  margin: 8.9px;
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+
+
+/*# badge  */
+
+#affiliate__badge {
+  position: absolute;
+  top: 12px;
+  right: -12px;
+  z-index: 1;
+  overflow: hidden;
+  width: 105px;
+  height: 105px;
+  transition: all .1s ease-in;
+  cursor: pointer;
+  will-change: transform;
+  font-family: proxima;
+}
+
+#affiliate__badge::before {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 0px;
+  width: 10px;
+  height: 10px;
+  background-color: #505960;
+  transition: all .1s ease-in;
+}
+
+#affiliate__badge::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  background-color: #505960;
+  transition: all .1s ease-in;
+}
+
+#affiliate__badge #affiliate__badge__body {
+  position: relative;
+  top: 21px;
+  left: -14px;
+  z-index: 1;
+  display: block;
+  width: 160px;
+  padding: 2px 0 6px;
+  background-color: #505960;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0/20%);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  transition: all 1s ease-in;
+  transform: rotate(45deg);
+}
+
+#affiliate__badge #affiliate__badge__body:hover {
+  /* transform: scale(1.1); */
+}
+
+#affiliate__badge span {
+  margin-left: -7px;
+  color: #F2F2F2;
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+#affiliate__badge h3 {
+  margin-left: -7px;
+  color: #fff;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+textarea {
+  resize: none;
+}
+
+
+#imagesPreview {
+  width: 100%;
+  overflow: auto;
+}
+
+#imagesPreview>img {
+  margin: 0 0.5vmax;
+}
+
+.artwork {
+  display: flex;
+  padding: 0%;
+}
+
+.artwork::file-selector-button {
+  cursor: pointer;
+  width: 50%;
+  z-index: 2;
+  border: none;
+  margin: 0%;
+  transition: all 0.5s;
+  padding: .6rem;
+  color: rgba(0, 0, 0, 0.623);
+  background-color: rgb(255, 255, 255);
+}
+
+.artwork {
+  display: flex;
+  padding: 0%;
+}
+
+.artwork_btn {
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+  border: none;
+  margin: 0%;
+  width: fit-content;
+  transition: all 0.5s;
+  padding: .6rem 1rem;
+  color: rgba(0, 0, 0, 0.623);
+  background-color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+.homeProducts .react-tabs__tab--selected button {
+  border: 2px solid var(--dark_primary) !important;
+  border-bottom: 5px solid var(--dark_primary) !important;
+}
+
+
+
+.product .react-tabs__tab--selected button {
+  background-color: var(--dark_primary) !important;
+  color: white !important;
+}
+
+.product .react-tabs__tab button {
+  transition: all .3s ease-in;
+}
+
+.product .react-tabs__tab button:hover {
+  background-color: var(--dark_primary) !important;
+  color: white !important;
+}
+
+
+
+
+
+.custom-shape-divider-top-1729016048 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1729016048 svg {
+  position: relative;
+  display: block;
+  width: calc(133% + 1.3px);
+  height: 73px;
+}
+
+.custom-shape-divider-top-1729016048 .shape-fill {
+  fill: var(--primary);
+}
+
+
+
+/* utils  */
+
+.secondary_text {
+  color: var(--dark_secondary);
+}
+
+.form_bg {
+  background-color: whitesmoke;
+}
+
+
+
+input[type='radio'],
+input[type='checkbox'] {
+  accent-color: #232323;
+}
+
+
+
+.infiniteText {
+  animation: infiniteText 10s linear infinite;
+}
+
+@keyframes infiniteText {
+
+  0% {
+      transform: translateX(100%);
+  }
+
+  100% {
+      transform: translateX(-100%);
+  }
+
+}
+
+.top_nv{
+  width: 0;
+  transition: all 0.1s ease;
+}
+
+.opacity_elem{
+  opacity: 0 !important;
+  transition: all 0.05s ease;
+  
+}
+
+
+
+
+
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  background: var(--dark_primary) !important;
+}
+
+.css-pwxzbm {
+  background: var(--dark_primary) !important;
+}
+
+.MuiPopover-paper {
+  background: var(--dark_primary) !important;
+}
+
+
+
+
+.primary_col {
+  color: var(--primary);
+}
+
+.primary_bg {
+  background: var(--primary);
+}
+
+.secondary_col {
+  color: var(--secondary);
+}
+
+.secondary_bg {
+  background: var(--secondary);
+}
+
+
+.dark_primary_col {
+  color: var(--dark_primary);
+}
+
+.dark_primary_bg {
+  background: var(--dark_primary);
+}
+
+.dark_secondary_col {
+  color: var(--dark_secondary);
+}
+
+.dark_secondary_bg {
+  background: var(--dark_secondary);
+}
