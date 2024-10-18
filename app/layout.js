@@ -3,7 +3,7 @@ import './globals.css';
 import Navbar from '@/components/Global/Navbar';
 import Footer from '@/components/Global/Footer';
 import Whatsapp from '@/components/Global/Whatsapp';
-// import Tawk from '@/components/Tawk/Tawk';
+import Tawk from '@/components/Tawk/Tawk';
 
 
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <Navbar />
         <Whatsapp/>
-        {/* <Tawk/> */}
+        <Tawk/>
         {children}
         <Footer />
       </body>
