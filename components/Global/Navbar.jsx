@@ -28,19 +28,20 @@ export default function Navbar() {
             {/* Top Navigation Links */}
             <div className="flex flex-wrap justify-center w-full sm:justify-between items-center py-0.5 bg-black text-white px-4 md:px-[var(--paddingX)]">
 
-                <div className="overflow-hidden w-fit ml-14">
+                <div className="items-center space-x-1 flex order-2 sm:order-none">
+                    <i className="ri-send-plane-fill text-lg"></i>
+                    <a href="mailto:sales@printpropackaging.com" className='text-sm'>sales@printpropackaging.com</a>
+                </div>
+
+                <div className="overflow-hidden w-fit ml-14 order-1 sm:order-none">
                     <div className="text-sm flex items-center whitespace-nowrap infiniteText w-fit">
                         Get 10% Discount On Your First Order
                     </div>
                 </div>
 
-                <div className="items-center space-x-3 flex">
-                    <div className="items-center space-x-1 flex">
-                        <i className="ri-send-plane-fill text-lg"></i>
-                        <a href="mailto:sales@printpropackaging.com" className='text-sm'>sales@printpropackaging.com</a>
-                    </div>
-                    <Country />
-                    <div className="items-center hidden md:flex mail__btn">
+                <div className="items-center space-x-3 hidden md:flex">
+                    <Country color="white" />
+                    <div className="items-center flex mail__btn">
                         <Button text="Get Free Quote" icon={<i className="ri-file-text-line mr-1"></i>} />
                     </div>
                 </div>
@@ -54,7 +55,13 @@ export default function Navbar() {
                             <Image width={400} height={100} src={Logo} alt="Logo" className="h-12 object-cover" />
                         </div>
                     </Link>
-                    <i onClick={toggleSidebar} className="ri-menu-5-line text-4xl cursor-pointer md:hidden block"></i>
+                    <div className="items-center flex md:hidden">
+                        <i onClick={toggleSidebar} className="ri-menu-5-line text-4xl cursor-pointer block"></i>
+                        <div className="pl-3">
+                            <i className="ri-search-line text-3xl font-bold cursor-pointer" onClick={toggleSearchModal}></i>
+                        </div>
+                    </div>
+
                     <div className="items-center justify-between hidden md:flex">
                         <NavMenu2 />
                         <NavMenu />
@@ -105,6 +112,7 @@ export default function Navbar() {
                 </div>
                 <div className="items-center ml-4 flex pl-2 pt-3 ">
                     <Button text="Get Free Quote" icon={<i className="ri-file-text-line mr-1"></i>} />
+                    <Country color="black" />
                 </div>
             </div>
 

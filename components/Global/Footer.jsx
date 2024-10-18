@@ -6,7 +6,7 @@ import payoneer from '@/assets/payoneer.jpg'
 const Footer = () => {
     return (
         <>
-            <footer className="text-white relative dark_primary_bg body-font px-4 md:px-[var(--paddingX)]">
+            <footer style={{background:'whitesmoke'}} className="text-black relative body-font px-4 md:px-[var(--paddingX)]">
                 <div className="custom-shape-divider-top-1729016048">
                     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
@@ -17,11 +17,11 @@ const Footer = () => {
                         <div className='w-full md:w-auto'>
                             <h2 className="title-font font-medium text-lg mb-6 text__golden underline underline-offset-4">Contact</h2>
                             <nav className="list-none mb-10 space-y-2">
-                                <li className="text-white hover_text__golden">
+                                <li className="text-black hover_text__golden">
                                     <i className="ri-earth-fill pr-1.5 text-2xl text__golden"></i>
                                     1942 Broadway St. STE 314C Boulder, CO, 80302, USA
                                 </li>
-                                <li className="text-white hover_text__golden">
+                                <li className="text-black hover_text__golden">
                                     <i className="ri-phone-fill pr-1.5 text-2xl text__golden"></i>
                                     +1 720-604-9062
                                 </li>
@@ -35,22 +35,22 @@ const Footer = () => {
                             <h2 className="title-font font-medium text-lg mb-6 text__golden underline underline-offset-4">Useful Links</h2>
                             <nav className="list-none mb-10 space-y-2">
                                 <li>
-                                    <Link href='/about' className="text-white hover_text__golden">About</Link>
+                                    <Link href='/about' className="text-black hover_text__golden">About</Link>
                                 </li>
                                 <li>
-                                    <Link href='/contact' className="text-white hover_text__golden">Contact</Link>
+                                    <Link href='/contact' className="text-black hover_text__golden">Contact</Link>
                                 </li>
                                 <li>
-                                    <Link href='/faq' className="text-white hover_text__golden">Faqs</Link>
+                                    <Link href='/faq' className="text-black hover_text__golden">Faqs</Link>
                                 </li>
                                 <li>
-                                    <Link href='/blogs' className="text-white hover_text__golden">Blogs</Link>
+                                    <Link href='/blogs' className="text-black hover_text__golden">Blogs</Link>
                                 </li>
                                 <li>
-                                    <Link href='/privacy_policy' className="text-white hover_text__golden">Privacy Policy</Link>
+                                    <Link href='/privacy_policy' className="text-black hover_text__golden">Privacy Policy</Link>
                                 </li>
                                 <li>
-                                    <Link href='/terms_conditions' className="text-white hover_text__golden">Terms & Conditions</Link>
+                                    <Link href='/terms_conditions' className="text-black hover_text__golden">Terms & Conditions</Link>
                                 </li>
                             </nav>
                         </div>
@@ -58,19 +58,19 @@ const Footer = () => {
                             <h2 className="title-font font-medium text-lg mb-6 text__golden underline underline-offset-4">CATEGORIES</h2>
                             <nav className="list-none mb-10 space-y-2">
                                 <li>
-                                    <Link href='/products/cbd-boxes' className="text-white hover_text__golden">CBD Boxes</Link>
+                                    <Link href='/products/cbd-boxes' className="text-black hover_text__golden">CBD Boxes</Link>
                                 </li>
                                 <li>
-                                    <Link href='/products/retail-boxes' className="text-white hover_text__golden">Retail Boxes</Link>
+                                    <Link href='/products/retail-boxes' className="text-black hover_text__golden">Retail Boxes</Link>
                                 </li>
                                 <li>
-                                    <Link href='/products/custom-kraft-boxes' className="text-white hover_text__golden">Custom kraft Boxes</Link>
+                                    <Link href='/products/custom-kraft-boxes' className="text-black hover_text__golden">Custom kraft Boxes</Link>
                                 </li>
                                 <li>
-                                    <Link href='/products/custom-cosmetic-boxes' className="text-white hover_text__golden">Custom Cosmetic Boxes</Link>
+                                    <Link href='/products/custom-cosmetic-boxes' className="text-black hover_text__golden">Custom Cosmetic Boxes</Link>
                                 </li>
                                 <li>
-                                    <Link href='/products/custom-food-and-beverage-boxes' className="text-white hover_text__golden">Custom Food and Beverage Boxes</Link>
+                                    <Link href='/products/custom-food-and-beverage-boxes' className="text-black hover_text__golden">Custom Food and Beverage Boxes</Link>
                                 </li>
                             </nav>
                         </div>
@@ -99,8 +99,8 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="text-white text-center py-4 text-sm border-t">
-                    © {new Date().getFullYear()} All Right Reserved! and Made with 💙 by <a href="https://developortayyab.web.app/" className="text-white ml-1 underline" target="_blank" rel="noopener noreferrer">Tayyab</a>
+                <div className="text-black text-center py-4 text-sm border-t">
+                    © {new Date().getFullYear()} All Right Reserved! and Made with 💙 by <a href="https://developortayyab.web.app/" className="text-black ml-1 underline" target="_blank" rel="noopener noreferrer">Tayyab</a>
                 </div>
             </footer>
         </>

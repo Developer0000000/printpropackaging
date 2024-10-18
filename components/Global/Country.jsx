@@ -9,7 +9,7 @@ import AU from '@/assets/AU.webp';
 import UK from '@/assets/UK.webp';
 import USA from '@/assets/USA.webp';
 
-export default function Country() {
+export default function Country({color}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
@@ -47,7 +47,7 @@ export default function Country() {
             >
                 {/* Display the active flag */}
                 <Image src={activeFlag} alt={activeCountry} width={25} height={25} style={{ marginRight: '4px' }} />
-                {activeCountry}
+                <span style={{ color: color }}>{activeCountry}</span>
             </Button>
 
             {/* Menu for selecting country */}
