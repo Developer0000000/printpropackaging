@@ -15,9 +15,8 @@ const MainForm = ({ slug, title }) => {
         qty2: '',
         qty3: '',
         printSide: 'Outside',
-        color: '1 Color',
+        finishing: '',
         unit: 'in',
-        finishing: 'Matte',
         material: 'Cardboard',
         addOns: {
             spotUV: false,
@@ -26,6 +25,10 @@ const MainForm = ({ slug, title }) => {
             insert: false,
             windowPatching: false,
         },
+
+        color: '',
+        interiorColor: '',
+        exteriorColor: '',
 
         name: "",
         email: "",
@@ -167,7 +170,7 @@ const MainForm = ({ slug, title }) => {
             </div>
 
             {/* Box Size Inputs */}
-            <div className="space-y-2">
+            <div className="space-y-1">
                 <label className="font-semibold text-black"><i className="ri-checkbox-multiple-blank-line text-lg"></i> Box Size:</label>
                 <div className="flex space-x-4">
                     <input
@@ -176,7 +179,7 @@ const MainForm = ({ slug, title }) => {
                         placeholder="Length"
                         value={formData.length}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 p-2 rounded text-black"
+                        className="w-full border border-gray-300 p-1.5 rounded text-black"
                     />
                     <input
                         type="text"
@@ -184,7 +187,7 @@ const MainForm = ({ slug, title }) => {
                         placeholder="Width"
                         value={formData.width}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 p-2 rounded text-black"
+                        className="w-full border border-gray-300 p-1.5 rounded text-black"
                     />
                     <input
                         type="text"
@@ -192,7 +195,7 @@ const MainForm = ({ slug, title }) => {
                         placeholder="Height"
                         value={formData.height}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 p-2 rounded text-black"
+                        className="w-full border border-gray-300 p-1.5 rounded text-black"
                     />
                 </div>
             </div>
@@ -208,7 +211,7 @@ const MainForm = ({ slug, title }) => {
                         placeholder="Qty 1"
                         value={formData.qty1}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 p-2 rounded text-black"
+                        className="w-full border border-gray-300 p-1.5 rounded text-black"
                     />
                     <input
                         type="text"
@@ -216,7 +219,7 @@ const MainForm = ({ slug, title }) => {
                         placeholder="Qty 2"
                         value={formData.qty2}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 p-2 rounded text-black"
+                        className="w-full border border-gray-300 p-1.5 rounded text-black"
                     />
                     <input
                         type="text"
@@ -224,146 +227,96 @@ const MainForm = ({ slug, title }) => {
                         placeholder="Qty 3"
                         value={formData.qty3}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 p-2 rounded text-black"
+                        className="w-full border border-gray-300 p-1.5 rounded text-black"
                     />
                 </div>
             </div>
 
+            <div>
+                <h1 className="font-semibold text-black"> <i className="ri-archive-2-line text-lg"></i> Material:</h1>
+                <div className="grid grid-cols-12 gap-2">
+                    <select
+                        name="printSide"
+                        value={formData.printSide}
+                        onChange={handleInputChange}
+                        className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
+                    >
+                        <option value="" disabled selected>Print Side</option>
+                        <option value="Outside">Outside</option>
+                        <option value="Inside">Inside</option>
+                        <option value="Both">Both</option>
 
-            {/* Print Side */}
-            <div className="space-y-1">
-                <label className="font-semibold text-black"> <i className="ri-footprint-line text-lg"></i> Print Side:</label>
-                <div className="flex space-x-4">
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="printSide"
-                            value="Outside"
-                            checked={formData.printSide === 'Outside'}
-                            onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        Outside
-                    </label>
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="printSide"
-                            value="Inside"
-                            checked={formData.printSide === 'Inside'}
-                            onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        Inside
-                    </label>
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="printSide"
-                            value="Both Sides"
-                            checked={formData.printSide === 'Both Sides'}
-                            onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        Both Sides
-                    </label>
+                    </select>
+                    <select
+                        name="finishing"
+                        value={formData.finishing}
+                        onChange={handleInputChange}
+                        className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
+                    >
+                        <option value="" disabled selected>Finishing</option>
+                        <option value="Matte">Matte</option>
+                        <option value="Gloss">Gloss</option>
+                        <option value="Clear Coat">Clear Coat</option>
+                    </select>
                 </div>
             </div>
 
-            {/* Colors */}
-            <div className="space-y-1">
-                <label className="font-semibold text-black"> <i className="ri-palette-line text-lg"></i> Colors:</label>
-                <div className="flex space-x-4">
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
+            {
+                (formData.printSide === 'Outside' || formData.printSide === 'Inside') &&
+                <div>
+                    <h1 className="font-semibold text-black"> <i className="ri-palette-line text-lg"></i> Colors:</h1>
+                    <div className="grid grid-cols-12 gap-2">
+                        <select
                             name="color"
-                            value="1 Color"
-                            checked={formData.color === '1 Color'}
+                            value={formData.color}
                             onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        1 Color
-                    </label>
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="color"
-                            value="2 Color"
-                            checked={formData.color === '2 Color'}
-                            onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        2 Color
-                    </label>
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="color"
-                            value="3 Color"
-                            checked={formData.color === '3 Color'}
-                            onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        3 Color
-                    </label>
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="color"
-                            value="Full"
-                            checked={formData.color === 'Full'}
-                            onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        Full
-                    </label>
+                            className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
+                        >
+                            <option value="" disabled selected>Select Colors</option>
+                            <option value="1 Color">1 Color</option>
+                            <option value="2 Color">2 Color</option>
+                            <option value="3 Color">3 Color</option>
+                            <option value="4 Color">4 Color</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-
-            {/* Finishing */}
-            <div className="space-y-1">
-                <label className="font-semibold text-black"> <i className="ri-timer-flash-line text-lg"></i> Finishing:</label>
-                <div className="flex space-x-4">
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="finishing"
-                            value="Matte"
-                            checked={formData.finishing === 'Matte'}
+            }
+            {
+                formData.printSide == 'Both' &&
+                <div>
+                    <h1 className="font-semibold text-black"> <i className="ri-palette-line text-lg"></i> Colors:</h1>
+                    <div className="grid grid-cols-12 gap-2">
+                        <select
+                            name="interiorColor"
+                            value={formData.interiorColor}
                             onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        Matte
-                    </label>
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="finishing"
-                            value="Gloss"
-                            checked={formData.finishing === 'Gloss'}
+                            className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
+                        >
+                            <option value="" disabled selected>Inside Colors</option>
+                            <option value="1 Color">1 Color</option>
+                            <option value="2 Color">2 Color</option>
+                            <option value="3 Color">3 Color</option>
+                            <option value="4 Color">4 Color</option>
+                        </select>
+                        <select
+                            name="exteriorColor"
+                            value={formData.exteriorColor}
                             onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        Gloss
-                    </label>
-                    <label className='text-gray-700'>
-                        <input
-                            type="radio"
-                            name="finishing"
-                            value="Clear Coat"
-                            checked={formData.finishing === 'Clear Coat'}
-                            onChange={handleInputChange}
-                            className="mr-1"
-                        />
-                        Clear Coat
-                    </label>
+                            className="border p-1.5 col-span-12 md:col-span-6 text-black placeholder:text-black"
+                        >
+                            <option value="" disabled selected>Outside Colors</option>
+                            <option value="1 Color">1 Color</option>
+                            <option value="2 Color">2 Color</option>
+                            <option value="3 Color">3 Color</option>
+                            <option value="4 Color">4 Color</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
+            }
 
             {/* Material Type */}
             <div className="space-y-1">
-                <label className="font-semibold text-black"> <i className="ri-archive-2-line text-lg"></i> Material:</label>
+                <h1 className="font-semibold text-black"> <i className="ri-archive-2-line text-lg"></i> Material 2:</h1>
                 <div className="flex space-x-4">
                     <label className='text-gray-700'>
                         <input
@@ -414,8 +367,8 @@ const MainForm = ({ slug, title }) => {
 
             {/* Add-ons */}
             <div className="space-y-1">
-                <label className="font-semibold text-black"> <i className="ri-apps-2-add-line text-lg"></i> Add-ons:</label>
-                <div className="flex space-x-4">
+                <h1 className="font-semibold text-black"> <i className="ri-apps-2-add-line text-lg"></i> Add-ons:</h1>
+                <div className="flex space-x-4 flex-wrap">
                     <label className='text-gray-700'>
                         <input
                             type="checkbox"
@@ -483,7 +436,7 @@ const MainForm = ({ slug, title }) => {
                         placeholder="Name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 p-2 rounded col-span-12 md:col-span-6 text-black"
+                        className="w-full border border-gray-300 p-1.5 rounded col-span-12 md:col-span-6 text-black"
                     />
                     <input
                         required
@@ -492,7 +445,7 @@ const MainForm = ({ slug, title }) => {
                         placeholder="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 p-2 rounded col-span-12 md:col-span-6 text-black"
+                        className="w-full border border-gray-300 p-1.5 rounded col-span-12 md:col-span-6 text-black"
                     />
                 </div>
 
@@ -503,7 +456,7 @@ const MainForm = ({ slug, title }) => {
                     placeholder="Email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full border border-gray-300 p-2 rounded text-black"
+                    className="w-full border border-gray-300 p-1.5 rounded text-black"
                 />
 
                 <textarea
@@ -512,8 +465,8 @@ const MainForm = ({ slug, title }) => {
                     placeholder="Additional Message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full border border-gray-300 p-2 rounded text-black"
-                    rows={5}
+                    className="w-full border border-gray-300 p-1.5 rounded text-black"
+                    rows={2}
                 />
 
             </div>
@@ -539,7 +492,7 @@ const MainForm = ({ slug, title }) => {
                 </div>
             </div>
 
-            <div id="imagesPreview" className="flex items-center pt-2">
+            <div id="imagesPreview" className="flex items-center">
                 {imagesPreview.map((image, index) => (
                     <Image
                         width={70}
@@ -547,6 +500,7 @@ const MainForm = ({ slug, title }) => {
                         key={index}
                         src={image}
                         alt="images Preview"
+                        className="pt-2"
                     />
                 ))}
             </div>

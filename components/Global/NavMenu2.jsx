@@ -43,7 +43,7 @@ export default function NavMenu2({ setSidebarOpen }) {
         },
         {
             title: 'Custom Cake Boxes',
-            slug: '/products/custom-food-and-beverage-boxes',
+            slug: '/products/food-and-beverage-boxes',
         },
         {
             title: 'Custom Apparel Boxes',

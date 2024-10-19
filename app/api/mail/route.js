@@ -10,7 +10,7 @@ cloudinary.v2.config({
 
 export async function POST(request) {
   try {
-    const { width, height, length, qty1, qty2, qty3, unit, color, name, email, phone, message, slug, title, printSide, images, finishing, material, addOns: { spotUV, emboss, foil, insert, windowPatching } } = await request.json();
+    const { width, height, length, qty1, qty2, qty3, unit, color, interiorColor, exteriorColor, name, email, phone, message, slug, title, printSide, images, finishing, material, addOns: { spotUV, emboss, foil, insert, windowPatching } } = await request.json();
 
 
     const imagesLinks = [];
@@ -66,6 +66,8 @@ export async function POST(request) {
                 ${unit && "Unit: " + unit}
                 ${printSide && "Print Side: " + printSide}
                 ${color && "Color: " + color}
+                ${interiorColor && "Interior Color: " + interiorColor}
+                ${exteriorColor && "Exterior Color: " + exteriorColor}
                 ${finishing && "Finishing: " + finishing}
                 ${material && "Material: " + material}
                 Spot UV: ${spotUV}

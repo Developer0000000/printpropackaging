@@ -60,18 +60,19 @@ input[type=number] {
 /*# utils */
 
 .text__golden {
-  color: var(--color_golden);
   color: var(--primary);
-  color: black;
+  color: var(--color_golden);
+  /* color: var(--dark_secondary); */
+  /* color: var(--dark_primary); */
 }
 
 .hover_text__golden {
   font-size: 14.5px;
 }
 
-/* .hover_text__golden:hover {
+.hover_text__golden:hover {
   color: var(--color_golden);
-} */
+}
 
 .css-1086bdv-MuiPaper-root-MuiAccordion-root.Mui-expanded {
   margin: 0 !important;

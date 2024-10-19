@@ -8,7 +8,7 @@ import ProductsCard from '../Products/ProductsCard';
 
 const HomeProducts = async () => {
 
-    const query = `*[_type == "category" && slug.current in ["cbd-boxes", "cosmetic-boxes", "cardboard-boxes", "custom-food-and-beverage-boxes"]] | order(_createdAt asc) {
+    const query = `*[_type == "category" && slug.current in ["cbd-boxes", "cosmetic-boxes", "cardboard-boxes", "food-and-beverage-boxes"]] | order(_createdAt asc) {
         title,
         "slug": slug.current,
         description,
